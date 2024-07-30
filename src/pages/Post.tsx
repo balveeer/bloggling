@@ -71,7 +71,7 @@ function Post() {
     navigate("/author/" + post.userId);
   };
 
-  return post ? (
+  return post &&(
     <div className="mt-4 dark:text-white max-w-5xl mx-auto">
         <div className="flex w-full justify-start items-center">
         <h1 className={`w-full p-4 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold inline pl-4 `}>
@@ -149,7 +149,7 @@ function Post() {
         </div>
         </div>
         <div className="flex flex-col">
-          <div className="w-full justify-center mb-4">
+          <div className="w-full justify-center my-2">
             <img
             //@ts-ignore
               src={getFilePreview(post.imageRequired)}
@@ -161,14 +161,7 @@ function Post() {
         </div>
         <Modal open={open} type={user?"verification":"authentication"} onClose={handleClose}  />
     </div>
-  ) :(
-   <div className="p-4 mt-5 dark:text-white">
-  <div className="flex w-full justify-start items-center">
-  <h1 className={`w-full p-4 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold inline pl-4 `}>
-    Post not Available
-  </h1>
-  </div>
-  </div>)
+  )
 }
 
 export default Post;
