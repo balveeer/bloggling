@@ -52,8 +52,8 @@ async function googleLogin() {
   try {
     const response: any = account.createOAuth2Session(
       OAuthProvider.Google,
-      "http://localhost:5173",
-      "http://localhost:5173/not-found"
+      "https://bloggling.netlify.app",
+      "https://bloggling.netlify.app/not-found"
     );
     if (response) {
       getCurrentUser();
