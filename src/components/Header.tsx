@@ -11,7 +11,8 @@ interface navItems {
 }
 function Header() {
   const [theme, setTheme] = useState(null);
-  const [scroll, setScroll] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
   const [open, setOpen] = useState(false);
   const authStatus = useSelector(
     (state: { auth: { status: boolean } }) => state.auth.status
@@ -53,32 +54,33 @@ function Header() {
   if(!windowDarkTheme && theme === null){
     setTheme(true)
   }
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      setIsScrolled(scrollPosition > 100);
+    };
 
-  // let prevScrollY = window.scrollY;
-  // window.addEventListener("scroll", () => {
-  //   const currentScrollY = window.scrollY;
-  //   if (currentScrollY+10 > prevScrollY) {
-  //     // console.log(scroll)
-  //     setScroll(true);
-  //   } else if (currentScrollY-10 < prevScrollY) {
-  //     // console.log(scroll)
-  //     setScroll(false);
+    window.addEventListener('scroll', handleScroll, { passive: true });
 
-  //   }
-  //   prevScrollY = currentScrollY;
-  // });
-  open
-    ? html?.classList.add("overflow-hidden")
-    : html?.classList.remove("overflow-hidden");
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   useEffect(() => {
     html.classList.remove("light", "dark");
     theme ? html.classList.add("light") : html.classList.add("dark");
   }, [theme]);
+
+  open
+    ? html?.classList.add("overflow-hidden")
+    : html?.classList.remove("overflow-hidden");
+
   return (
     <>
       <header
         className={`fixed z-50 ${
-          scroll ? "h-16" : "h-20"
+          isScrolled ? "h-20" : "h-24"
         } transition-all duration-300 w-full px-4 shadow-md backdrop-blur-[.625rem] bg-violet-300/70 dark:bg-gray-800/50`}
       >
         <nav className="w-full h-full flex justify-between content-between">
@@ -215,7 +217,7 @@ function Header() {
           </div>
         </nav>
       </header>
-      <div className={`w-full ${scroll ? "h-16" : "h-20"}`}></div>
+      <div className={`w-full ${isScrolled ? "h-20" : "h-24"}`}></div>
       <div
         onClick={() => setOpen(!open)}
         className={`${
@@ -224,7 +226,7 @@ function Header() {
       ></div>
       <div
         className={`w-2/3 sm:w-1/2 md:hidden fixed z-50 pr-4 right-0 h-screen overflow-x-hidden transition-all duration-300 ease-in  text-xl font-semibold  shadow-md backdrop-blur-[.625rem] bg-violet-300/70 dark:bg-gray-800/50 ${
-          scroll ? "top-16" : "top-20"
+          isScrolled ? "top-20" : "top-24"
         } ${open ? "translate-x-0" : "translate-x-1/2 scale-x-0 "}`}
       >
         <nav>

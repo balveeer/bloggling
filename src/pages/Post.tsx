@@ -32,21 +32,24 @@ function Post() {
     e.stopPropagation();
     setOpen(false);
   }
-  const handleSave = () => {
-    if(user){
-    if (post?.saves.includes(user?.$id)) {
-      let tempSave = post.saves.filter((save:string) => save != user?.$id);
-      dispatch(updateSave({ saves: tempSave, id: post?.$id }));
-      // @ts-ignore
-      updatePost(post?.$id, {
-        title: post?.title,
-        author: post?.author,
-        content: post?.content,
-        category: post?.category,
-        imageRequired: post.imageRequired,
-        saves: tempSave,
-      });
-    } else {
+  const handleSave = (e: any) => {
+    e.preventDefault();
+    e.stopPropagation();
+      if(user?.emailVerification){
+        if (post?.saves.includes(user?.$id)) {
+          let tempSave = post.saves.filter((save:string) => save != user?.$id);
+          dispatch(updateSave({ saves: tempSave, id: post?.$id }));
+          // @ts-ignore
+          updatePost(post?.$id, {
+            title: post?.title,
+            author: post?.author,
+            content: post?.content,
+            category: post?.category,
+            imageRequired: post.imageRequired,
+            saves: tempSave,
+          });
+        } 
+      else {
       dispatch(
         updateSave({ saves: [...post?.saves, user?.$id], id: post?.$id })
       );
@@ -60,8 +63,7 @@ function Post() {
         saves: [...post.saves, user?.$id],
       });
     }
-  }
-   else{
+  } else{
     setOpen(true);
   }
   };
@@ -70,7 +72,7 @@ function Post() {
   };
 
   return post ? (
-    <div className="p-4 mt-5 dark:text-white">
+    <div className="mt-4 dark:text-white max-w-5xl mx-auto">
         <div className="flex w-full justify-start items-center">
         <h1 className={`w-full p-4 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold inline pl-4 `}>
           {post.title}
@@ -147,7 +149,7 @@ function Post() {
         </div>
         </div>
         <div className="flex flex-col">
-          <div className="w-full justify-center mb-4 p-2">
+          <div className="w-full justify-center mb-4">
             <img
             //@ts-ignore
               src={getFilePreview(post.imageRequired)}
@@ -157,7 +159,7 @@ function Post() {
           </div>
           <div className=" first-letter:capitalize first-letter:mr-2 first-letter:float-left first-letter:text-5xl first-letter:text-gray-500 first-letter:font-bold text-sm sm:text-base md:text-lg lg:text-xl leading-6">{parse(post.content)}</div>
         </div>
-        <Modal open={open} onClose={handleClose}  />
+        <Modal open={open} type={user?"verification":"authentication"} onClose={handleClose}  />
     </div>
   ) :(
    <div className="p-4 mt-5 dark:text-white">
