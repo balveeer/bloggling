@@ -3,7 +3,7 @@
 
 function Logo({width=""}) {
   return (
-  <div className="relative mr-8 "><svg
+  <div className="relative mr-16"><svg
   className="w-14 md:w-16 dark:bg-gray-900 bg-white fill-purple-600 dark:fill-white rounded-lg"
     xmlns="http://www.w3.org/2000/svg"
     xmlnsXlink="http://www.w3.org/1999/xlink"

@@ -23,7 +23,7 @@ function App() {
   return (
     <div className="min-h-screen w-full flex flex-col items-center">
       <Header />
-      <main className="flex-grow w-full justify-center px-4">
+      <main className="flex-grow w-full justify-center px-2 md:px-4">
         <ScrollReset />
         <Outlet />
       </main>
