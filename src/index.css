@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo:ital,wght@1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+h1,h2,h3,h4,h5,h6,p,div {
+  font-family: "Nunito", sans-serif;
+}
+
+@keyframes wave {
+  0% {
+    background-position: 200% 0%;
+  }
+  100%{
+    background-position: -200% 0%;
+  }
+}
+.wave-animate {
+  background-size: 200%;
+  animation: wave 3s linear infinite;
+}
+
+/* ::selection {
+  color: white;
+  background: rgba(128, 0, 128, 0.5);
+} */
