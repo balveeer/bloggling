@@ -2,18 +2,77 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bloggling</title>
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bloggling.netlify.app">
+    <meta property="og:title" content="Bloggling">
+    <meta property="og:description" content="Mind Boggling Blogs...">
+    <meta property="og:image" content="/mstile-310x310.png"> <!-- Add this image to your public folder -->
+    <meta property="og:site_name" content="Bloggling">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Bloggling">
+    <meta name="twitter:description" content="Mind Boggling Blogs...">
+    <meta name="twitter:image" content="/og-image.jpg"> <!-- Same as og:image -->
+    <meta name="twitter:image:alt" content="Bloggling">
+
+    <!-- Favicon and PWA assets -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#000000">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    <!-- Microsoft Tile -->
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-config" content="/browserconfig.xml">
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#ffffff">
+  </head>
+  <body class="bg-purple-100 dark:bg-gray-950 m-0 p-0 overflow-x-auto">
+    <div id="root"></div>
+    <div id="portal"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
+
+
+
+
+<!-- 
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
     <meta property="og:title" content="Bloggling">
     <meta property="og:type" content="website">
-    <!-- <meta property="og:image" href="./src/components/assets/logoSvgDark.svg"> -->
     <meta property="og:url" content="https://bloggling.netlify.app">
     <meta property="og:description" content="Mind Boggling Blogs...">
     <meta property="og:site_name" content="Bloggling">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Bloggling">
     <meta name="twitter:image:alt" content="Bloggling">
-    <meta name="theme-color" content="#FFF">
     <link rel="icon" type="image/svg+xml" href="./src/components/assets/favicon.svg">
     <link rel="icon" type="image/png" href="./src/components/assets/favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/src/components/assets/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/src/components/assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/src/components/assets/favicon-16x16.png">
+    <link rel="manifest" href="/src/components/assets/site.webmanifest">
+    <link rel="mask-icon" href="/src/components/assets/safari-pinned-tab.svg" color="#000000">
+    <link rel="shortcut icon" href="/src/components/assets/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-config" content="/src/components/assets/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bloggling</title>
   </head>
@@ -23,7 +82,10 @@
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
-<!-- 
+
+
+
+
 <head>
     <meta charset="UTF-8">
     <meta name="google-site-verification" content= "wIV4WwIlzZ9y13QnXZjRzJr975c2WzEHY5jbSNtW-d4" >
@@ -34,4 +96,15 @@
     
   <link rel="manifest" href="/manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="/registerSW.js"></script>
 </head>
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="/src/components/assets/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/src/components/assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/src/components/assets/favicon-16x16.png">
+<link rel="manifest" href="/src/components/assets/site.webmanifest">
+<link rel="mask-icon" href="/src/components/assets/safari-pinned-tab.svg" color="#000000">
+<link rel="shortcut icon" href="/src/components/assets/favicon.ico">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-config" content="/src/components/assets/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
  -->
