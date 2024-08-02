@@ -23,21 +23,21 @@ import MyPosts from "./pages/MyPosts";
 import Profile from "./pages/Profile";
 import ResetPassword from "./pages/ResetPassword";
 // @ts-ignore
-import { registerSW } from "virtual:pwa-register";
+// import { registerSW } from "virtual:pwa-register";
 
-// Register service worker
-const updateSW = registerSW({
-  onNeedRefresh() {
-    // You can implement a prompt for the user to refresh the page
-    if (confirm("New content available. Reload?")) {
-      updateSW(true);
-    }
-  },
-  onOfflineReady() {
-    console.log("App ready to work offline");
-    // You can show a notification to the user that the app is ready for offline use
-  },
-});
+// // Register service worker
+// const updateSW = registerSW({
+//   onNeedRefresh() {
+//     // You can implement a prompt for the user to refresh the page
+//     if (confirm("New content available. Reload?")) {
+//       updateSW(true);
+//     }
+//   },
+//   onOfflineReady() {
+//     console.log("App ready to work offline");
+//     // You can show a notification to the user that the app is ready for offline use
+//   },
+// });
 
 const router = createBrowserRouter(
   createRoutesFromElements(
