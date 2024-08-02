@@ -17,7 +17,7 @@ export default defineConfig({
         description: "India's finest fashion hand-picked from top brands",
         theme_color: '#F3E8FF',
         background_color: '#F3E8FF',
-        start_url: 'https://bloggling.netlify.app/',
+        start_url: 'https://bloggling.netlify.app',
         display: 'standalone',
         prefer_related_applications: false,
         icons: [
