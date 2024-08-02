@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { Input } from "../components";
+import { Input, Load } from "../components";
 import { resetPassword, updateResetPassword } from "../appwrite/auth";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function ResetPassword() {
   const [load, setLoad] = useState(false);
@@ -9,13 +9,13 @@ function ResetPassword() {
   const [pass, setPass] = useState("")
   const [confirmPass, setConfirmPass] = useState("")
   const [message, setMessage] = useState("")
-  const navigate = useNavigate();
   const urlParams = new URLSearchParams(window.location.search);
   const secret = urlParams.get("secret");
   const userId = urlParams.get("userId");
 
   async function sendMail(e: any) {
     e.preventDefault();
+    setLoad(true)
     setMessage("")
     const response = await resetPassword(email);
     if(response) setMessage("Password recovery mail sent, check your inbox.")
@@ -67,21 +67,7 @@ function ResetPassword() {
             className="w-full rounded-lg px-4 py-2 mt-6 text-white bg-purple-500 hover:bg-purple-600 font-bold"
           >
             {load ? (
-              <>
-                <span className="animate-[spin_1.5s_ease-in-out_infinite] overflow-hidden text-white inline-block">
-                  <svg
-                    className="animate-spin"
-                    width="20"
-                    stroke="white"
-                    fill="white"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path d="M12,23a9.63,9.63,0,0,1-8-9.5,9.51,9.51,0,0,1,6.79-9.1A1.66,1.66,0,0,0,12,2.81h0a1.67,1.67,0,0,0-1.94-1.64A11,11,0,0,0,12,23Z" />
-                  </svg>
-                </span>
-              </>
+              <Load />
             ) : (
               <span>Send Reset Password Email</span>
             )}

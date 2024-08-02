@@ -1,8 +1,7 @@
-import { Client, Databases, Storage, Query, ID } from "appwrite";
+import { Client, Databases, Storage, ID } from "appwrite";
 import conf from "../conf/conf";
 import store from "../store/store";
 import { setPosts } from "../store/postSlice";
-
 export interface Post {
   title: string;
   slug: string;
@@ -12,7 +11,7 @@ export interface Post {
   status: boolean;
   author?: string;
   saves: string[];
-  views:number;
+  views: number;
 }
 const client: any = new Client();
 client.setEndpoint(conf.appwriteUrl).setProject(conf.appwriteProjectId);
@@ -48,7 +47,7 @@ async function createPost(
 
 async function updatePost(
   slug: string,
-  { title, author, content, category, imageRequired, saves,views=6 }: Post
+  { title, author, content, category, imageRequired, saves, views = 6 }: Post
 ) {
   // console.log(views, title, author , content, category, imageRequired,saves)
   try {
@@ -63,7 +62,7 @@ async function updatePost(
         imageRequired,
         category,
         saves,
-        views
+        views,
       }
     );
   } catch (error) {
@@ -122,10 +121,7 @@ async function uploadFile(file: any) {
 
 async function deleteFile(fileId: string) {
   try {
-      await storage.deleteFile(
-      String(conf.appwriteBucketId),
-      String(fileId)
-    );
+    await storage.deleteFile(String(conf.appwriteBucketId), String(fileId));
     return true;
   } catch (error) {
     // console.log("Appwrite service :: deleteFile :: error", error);
@@ -133,8 +129,8 @@ async function deleteFile(fileId: string) {
   }
 }
 
-function getFilePreview(fileId: string,) {
-  return storage.getFilePreview(conf.appwriteBucketId, fileId)+"&output=webp"
+function getFilePreview(fileId: string) {
+  return storage.getFilePreview(conf.appwriteBucketId, fileId) + "&output=webp";
 }
 
 export {

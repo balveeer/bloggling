@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { getFilePreview,deleteFile,deletePost, updatePost } from "../appwrite/config";
 import parse from "html-react-parser";
 import { useAppDispatch, useAppSelector } from "../store/hooks";
 import { userData } from "../store/authSlice";
-import {selectPosts, updateSave, updateViews} from "../store/postSlice";
+import {selectPosts, updateSave} from "../store/postSlice";
 import { Modal, UserType } from "../components/index";
 
 function Post() {
