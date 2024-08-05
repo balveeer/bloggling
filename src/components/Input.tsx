@@ -18,7 +18,7 @@ const Input:any = React.forwardRef(function Input(
         type={type}
         title={imageTitle}
         placeholder={placeholder}
-        className={`w-full px-3 py-2 rounded-lg bg-white text-black dark:text-white outline-none focus:bg-gray-50 dark:bg-gray-700 focus:dark:bg-gray-600 dark:focus:ring-gray-400 duration-200 border border-gray-200 dark:border-gray-600 peer focus:ring-2 ring-purple-400 pr-12 ${className} `}
+        className={`w-full px-3 py-2 rounded-lg bg-white text-black dark:text-white outline-none focus:bg-gray-50 dark:bg-gray-700 focus:dark:bg-gray-600 dark:focus:ring-gray-400 duration-200 border border-gray-200 dark:border-gray-600 peer focus:ring-2 ring-black pr-12 ${className} `}
         //@ts-ignore
         ref={ref}
         id={id}

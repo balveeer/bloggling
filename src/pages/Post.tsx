@@ -5,7 +5,7 @@ import parse from "html-react-parser";
 import { useAppDispatch, useAppSelector } from "../store/hooks";
 import { userData } from "../store/authSlice";
 import {selectPosts, updateSave} from "../store/postSlice";
-import { Modal, UserType } from "../components/index";
+import { Load, Modal, UserType } from "../components/index";
 
 function Post() {
   const [load, setLoad] = useState(false);
@@ -92,19 +92,7 @@ function Post() {
                 className="py-2 px-4  rounded-r  text-black bg-red-600/50 hover:bg-red-600 hover:text-white border border-black border-l-0 font-semibold"
               >
                 {load ? (
-                  <span className="animate-[spin_1s_ease-in-out_infinite] px-6 text-white inline-block">
-                    <svg
-                      className="animate-spin"
-                      width="20"
-                      stroke="white"
-                      fill="white"
-                      height="20"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path d="M12,23a9.63,9.63,0,0,1-8-9.5,9.51,9.51,0,0,1,6.79-9.1A1.66,1.66,0,0,0,12,2.81h0a1.67,1.67,0,0,0-1.94-1.64A11,11,0,0,0,12,23Z" />
-                    </svg>
-                  </span>
+                  <Load />
                 ) : (
                   <span>Delete</span>
                 )}
@@ -114,9 +102,9 @@ function Post() {
         <div className="w-full flex flex-col md:flex-row justify-center">
         <div className={`p-2 my-2 flex justify-around gap-x-2 bg-purple-200 dark:bg-gray-900 rounded-lg w-full h-min md:w-1/2  text-sm sm:text-base md:text-lg lg:text-xl` } >
           <h2 className="text-gray-700 dark:text-white px-2">
-            ✍🏼: {post.author?(<span onClick={authorPosts} className="capitalize hover:no-underline underline hover:text-black dark:hover:text-white dark:text-white cursor-pointer">{post.author}</span>):"Unknown"}
+            ✍🏼 {post.author?(<span onClick={authorPosts} className="capitalize hover:no-underline underline hover:text-black dark:hover:text-white dark:text-white cursor-pointer">{post.author}</span>):"Unknown"}
           </h2>
-          <h2 className="text-gray-700 dark:text-white">📆: {date?date:""}</h2>
+          <h2 className="text-gray-700 dark:text-white">📆 {date?date:""}</h2>
           <h2 onClick={handleSave} className="cursor-pointer text-gray-700 dark:text-white">{post?.saves.includes(user?.$id) ? (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -139,7 +127,7 @@ function Post() {
                   <path d="M 16.5 5 C 12.928062 5 10 7.9280619 10 11.5 L 10 41.5 A 1.50015 1.50015 0 0 0 12.376953 42.716797 L 24 34.347656 L 35.623047 42.716797 A 1.50015 1.50015 0 0 0 38 41.5 L 38 11.5 C 38 7.9280619 35.071938 5 31.5 5 L 16.5 5 z M 16.5 8 L 31.5 8 C 33.450062 8 35 9.5499381 35 11.5 L 35 38.572266 L 24.876953 31.283203 A 1.50015 1.50015 0 0 0 23.123047 31.283203 L 13 38.572266 L 13 11.5 C 13 9.5499381 14.549938 8 16.5 8 z"></path>
                   
                 </svg>
-              )}: {post?.saves.length || "0"}</h2>
+              )} {post?.saves.length || "0"}</h2>
         </div>
         <div className="w-auto flex flex-wrap items-center justify-center gap-2 px-4">
         {post.category.map((cat:string)=>
@@ -154,10 +142,10 @@ function Post() {
             //@ts-ignore
               src={getFilePreview(post.imageRequired)}
               alt={post.title}
-              className=" rounded-xl mx-auto max-h-screen"
+              className=" rounded-xl w-full md:mx-auto max-h-screen"
             />
           </div>
-          <div className=" first-letter:capitalize first-letter:mr-2 first-letter:float-left first-letter:text-5xl first-letter:text-gray-500 first-letter:font-bold text-sm sm:text-base md:text-lg lg:text-xl leading-6">{parse(post.content)}</div>
+          <p className=" first-letter:capitalize first-letter:mr-2 first-letter:float-left first-letter:text-5xl first-letter:text-gray-500 first-letter:font-bold sm:text-lg md:text-xl lg:text-2xl font-serif my-2">{parse(post.content)}</p>
         </div>
         <Modal open={open} type={user?"verification":"authentication"} onClose={handleClose}  />
     </div>

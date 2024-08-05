@@ -1,4 +1,4 @@
-import { Client, Databases, Storage, ID } from "appwrite";
+import { Client, Databases, Storage, ID,ImageGravity,ImageFormat } from "appwrite";
 import conf from "../conf/conf";
 import store from "../store/store";
 import { setPosts } from "../store/postSlice";
@@ -92,7 +92,7 @@ async function getPost(slug: string) {
     );
   } catch (error) {
     // console.log("Appwrite service :: getPost :: error", error);
-    return false;
+    return error;
   }
 }
 
@@ -130,8 +130,21 @@ async function deleteFile(fileId: string) {
 }
 
 function getFilePreview(fileId: string) {
-  return storage.getFilePreview(conf.appwriteBucketId, fileId) + "&output=webp";
-}
+  function getWidth() {
+    const width = window.innerWidth;
+    let imageWidth;
+    if (width < 640) imageWidth = 320;
+    else if (width < 768) imageWidth = 640;
+    else if (width < 1024) imageWidth = 768;
+    else imageWidth = 1024;
+    return imageWidth;
+  }
+
+  return storage.getFilePreview(conf.appwriteBucketId, fileId, getWidth(),
+  0,
+  ImageGravity.Center,
+  100,
+)+ "&output=webp";}
 
 export {
   createPost,

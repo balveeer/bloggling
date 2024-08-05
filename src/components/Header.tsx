@@ -20,7 +20,7 @@ function Header() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const html: any = document.querySelector("html");
-  console.log(windowDarkTheme)
+
   const navItems: [navItems] = [
     {
       name: "Home",
@@ -54,6 +54,7 @@ function Header() {
   if(!windowDarkTheme && theme === null){
     setTheme(true)
   }
+
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
@@ -81,7 +82,7 @@ function Header() {
       <header
         className={`fixed z-50 ${
           isScrolled ? "h-20" : "h-24"
-        } transition-all duration-300 w-full px-4 shadow-md backdrop-blur-[.625rem] bg-violet-300/70 dark:bg-gray-800/50`}
+        } transition-all duration-300 w-full px-4 shadow-md backdrop-blur-[.625rem] bg-gray-50/50 dark:bg-gray-800/50`}
       >
         <nav className="w-full h-full flex justify-between content-between">
           <div className="min-w-1/5 flex justify-start items-center duration-300">
@@ -99,9 +100,9 @@ function Header() {
                     className={({ isActive }) =>
                       `mx-4 py-2 ${
                         isActive
-                          ? "border-b-2 cursor-default text-purple-800"
-                          : "text-purple-600 hover:opacity-70"
-                      } dark:text-white border-purple-800 dark:border-white dark:ring-gray-300 lance   font-medium `
+                          ? "border-b-2 cursor-default text-black"
+                          : "text-black hover:opacity-70"
+                      } dark:text-white border-black dark:border-white dark:ring-gray-300 lance   font-medium `
                     }
                   >
                     {item.name}
@@ -121,7 +122,7 @@ function Header() {
                     viewBox="0 0 24 24"
                     strokeWidth="1.5"
                     stroke="currentColor"
-                    className="w-6 h-6 text-purple-800 hover:text-purple-600"
+                    className="w-6 h-6 text-black hover:text-black"
                     role="img"
                   >
                     <path
@@ -147,7 +148,7 @@ function Header() {
                     ></path>
                   </svg>
                 )}
-                <span className="absolute rounded-full top-full left-1/2 -translate-x-1/2 ring-1 text-purple-800 dark:text-white ring-purple-800 dark:ring-white text-xs w-max mt-2 px-4 py-1 opacity-0 transition-opacity delay-200 group-hover:opacity-80 font-semibold">
+                <span className="absolute rounded-full top-full left-1/2 -translate-x-1/2 ring-1 text-black dark:text-white ring-black dark:ring-white text-xs w-max mt-2 px-4 py-1 opacity-0 transition-opacity delay-200 group-hover:opacity-80 font-semibold">
                   {!theme ? "Light" : "Dark"} Theme
                 </span>
               </button>
@@ -159,7 +160,7 @@ function Header() {
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="dark:text-white w-6 h-6 text-purple-700"
+                  className="dark:text-white w-6 h-6 text-black"
                   viewBox="0 0 512 512"
                 >
                   <path
@@ -178,7 +179,7 @@ function Header() {
                     strokeWidth="40"
                   />
                 </svg>
-                <span className="absolute rounded-full top-full left-1/2 -translate-x-1/2 ring-1 text-purple-800 dark:text-white ring-purple-800 dark:ring-white text-xs w-max mt-2 px-4 py-1 opacity-0 transition-opacity delay-200 group-hover:opacity-80 font-semibold">
+                <span className="absolute rounded-full top-full left-1/2 -translate-x-1/2 ring-1 text-black dark:text-white ring-black dark:ring-white text-xs w-max mt-2 px-4 py-1 opacity-0 transition-opacity delay-200 group-hover:opacity-80 font-semibold">
                   Profile
                 </span>
               </button>
@@ -225,12 +226,12 @@ function Header() {
         }  md:hidden md:w-0 h-full z-40 w-full`}
       ></div>
       <div
-        className={`w-2/3 sm:w-1/2 md:hidden fixed z-50 pr-4 right-0 h-screen overflow-x-hidden transition-all duration-300 ease-in  text-xl font-semibold  shadow-md backdrop-blur-[.625rem] bg-violet-300/70 dark:bg-gray-800/50 ${
+        className={`w-2/3 sm:w-1/2 md:hidden fixed z-50 pr-4 right-0 h-screen overflow-x-hidden transition-all duration-300 ease-in  text-xl font-semibold  shadow-md backdrop-blur-[.625rem] bg-gray-300/70 dark:bg-gray-800/50 ${
           isScrolled ? "top-20" : "top-24"
         } ${open ? "translate-x-0" : "translate-x-1/2 scale-x-0 "}`}
       >
         <nav>
-          <ul className="flex flex-col justify-start items-start dark:*:text-white *:ms-2 *:py-4 mr-auto w-full *:truncate *:border-b-2 *:border-violet-500/50 *:dark:border-gray-500/50 *:box-border hover:*:bg-violet-400 hover:*:dark:bg-gray-700/80">
+          <ul className="flex flex-col justify-start items-start dark:*:text-white *:ms-2 *:py-4 mr-auto w-full *:truncate *:border-b-2 *:border-gray-500/50 *:dark:border-gray-500/50 *:box-border hover:*:bg-gray-400 hover:*:dark:bg-gray-700/80">
             {navItems.map((item) =>
               item.active ? (
                 <NavLink
@@ -238,9 +239,9 @@ function Header() {
                   to={item.slug}
                   key={item.name}
                   className={({ isActive }) =>
-                    `w-full p-2 text-end duration-300 ring-0 ring-purple-500 border-0 border-black dark:ring-gray-300 font-semibold text-purple-800 hover:bg-violet-400 hover:dark:bg-gray-700/80 ${
+                    `w-full p-2 text-end duration-300 ring-0 ring-black border-0 border-black dark:ring-gray-300 font-semibold text-black hover:bg-gray-400 hover:dark:bg-gray-700/80 ${
                       isActive
-                        ? "bg-violet-400 dark:bg-gray-700/80"
+                        ? "bg-gray-400 dark:bg-gray-700/80"
                         : "opacity-70"
                     }`
                   }
@@ -253,7 +254,7 @@ function Header() {
               onClick={() => {
                 setOpen(!open), setTheme(!theme);
               }}
-              className={`w-full p-2 text-end duration-300 ring-0 ring-purple-500 border-0 border-black dark:ring-gray-300 font-semibold text-purple-800 opacity-70`}
+              className={`w-full p-2 text-end duration-300 ring-0 ring-black border-0 border-black dark:ring-gray-300 font-semibold text-black opacity-70`}
             >
               {theme ? "Dark" : "Light"} Theme
             </button>
@@ -261,8 +262,8 @@ function Header() {
               to="/profile"
               onClick={() => setOpen(!open)}
               className={({ isActive }) =>
-                `w-full p-2 text-end duration-300 ring-0 ring-purple-500 border-0 border-black dark:ring-gray-300 font-semibold text-purple-800 hover:bg-violet-400 hover:dark:bg-gray-700/80 ${
-                  isActive ? "bg-violet-400 dark:bg-gray-700/80" : "opacity-70"
+                `w-full p-2 text-end duration-300 ring-0 ring-black border-0 border-black dark:ring-gray-300 font-semibold text-black hover:bg-gray-400 hover:dark:bg-gray-700/80 ${
+                  isActive ? "bg-gray-400 dark:bg-gray-700/80" : "opacity-70"
                 }`
               }
             >

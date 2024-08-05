@@ -93,7 +93,7 @@ export default function PostForm({post}:any) {
 
   return (
     <form onSubmit={handleSubmit(submit)} className="flex flex-wrap py-8">
-      {message&&<span className="w-full p-4 m-4 text-xl bg-white dark:bg-black text-red-600 dark:text-red-600 ring-2 ring-purple-400 dark:ring-purple-300 text-center rounded-full ">{message}
+      {message&&<span className="w-full p-4 m-4 text-xl bg-white dark:bg-black text-red-600 dark:text-red-600 ring-2 ring-black dark:ring-white text-center rounded-full ">{message}
       </span>}
       <div className="w-full md:w-2/3 px-2">
         <Input
