@@ -55,13 +55,13 @@ function Categories({props,defaultValue=[],onCatChange,className}:any,ref:any ) 
         <div className="w-full flex grow gap-1 flex-wrap transition duration-300 select-none">
         {selectedCat.map((cat,index)=>
         <span key={String(index)}
-        className="rounded-2xl font-semibold text-xs bg-purple-300 dark:bg-gray-700 dark:text-white p-2 cursor-pointer">{cat} <span onClick={()=>deleteCat(index)} className="rounded-2xl bg-purple-200 dark:bg-gray-500 p-1 h-4 w-4" >❌</span></span>
+        className="rounded-2xl font-semibold text-xs bg-gray-300 dark:bg-gray-700 dark:text-white p-2 cursor-pointer">{cat} <span onClick={()=>deleteCat(index)} className="rounded-2xl bg-gray-200 dark:bg-gray-500 p-1 h-4 w-4" >❌</span></span>
         )}
         </div>
       <select
         id={id}
         onChange={(e)=>handleCategories(e.target.value)}
-        className={`w-full my-2 px-3 py-2 rounded-lg bg-white text-black dark:text-white outline-none focus:bg-gray-50 dark:bg-gray-700 focus:dark:bg-gray-600 dark:focus:ring-gray-400 duration-200 border border-gray-200 dark:border-gray-600 peer focus:ring-2 ring-purple-400 pr-12`}
+        className={`w-full my-2 px-3 py-2 rounded-lg bg-white text-black dark:text-white outline-none focus:bg-gray-50 dark:bg-gray-700 focus:dark:bg-gray-600 dark:focus:ring-gray-400 duration-200 border border-gray-200 dark:border-gray-600 peer focus:ring-2 ring-gray-400 pr-12`}
       >
         {options?.map((option,index) => (
           <option className="" key={index} value={option}>

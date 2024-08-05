@@ -28,7 +28,6 @@ function Signup() {
     try {
       const userData:boolean|null = await createAccount(data);
       if (userData == true) {
-        // emailVerification();
         navigate("/verify-email");
       }
     } catch (error:any) {
@@ -39,10 +38,10 @@ function Signup() {
   return (
     <div className="flex items-center justify-center m-3">
       <div
-        className={`mx-auto w-full max-w-lg bg-purple-200 dark:bg-gray-800 dark:text-white rounded-xl p-10 border border-black/10`}
+        className={`mx-auto w-full max-w-lg bg-gray-50 dark:bg-gray-800 dark:text-white rounded-xl p-10 border border-black/10`}
       >
       <div className="mb-2 flex justify-center">
-        <span className="">
+        <span>
           <Logo />
         </span>
       </div>
@@ -106,7 +105,7 @@ function Signup() {
             />
             <button
               type="submit"
-              className="w-full rounded-lg px-4 py-2 text-white bg-purple-500 hover:bg-purple-600 font-bold"
+              className="w-full rounded-lg px-4 py-2 text-white hover:text-black bg-black hover:bg-white border-black border-2 font-bold"
             >
               {load ? (
                 <span className="animate-[spin_1.5s_ease-in-out_infinite] overflow-hidden text-white inline-block">

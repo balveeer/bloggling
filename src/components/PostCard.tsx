@@ -50,25 +50,19 @@ const PostCard: React.FC<{ post: PostType, save: boolean }> = ({ post, save=true
   }
   return (
     <div className="w-full">
-      <Link to={`/post/${post?.$id}`} className="mx-auto relative flex max-w-[26rem] flex-col rounded-xl bg-violet-300/70 hover:bg-violet-300 bg-clip-border dark:bg-gray-900/70 hover:dark:bg-gray-900 dark:text-white group duration-200 hover:shadow-xl shadow-violet-200 dark:shadow-gray-800 active:scale-95">
+      <Link to={`/post/${post?.$id}`} className="mx-auto relative flex max-w-[20rem] flex-col rounded-xl bg-gray-50 hover:bg-gray-200 bg-clip-border dark:bg-gray-900/70 hover:dark:bg-gray-900 dark:text-white group duration-200 hover:shadow-xl shadow-violet-200 dark:shadow-gray-800 active:scale-95">
         <img
           //@ts-ignore
-          src={
-            post
-              ? 
-              // "http://localhost/v1/storage/files/"+post?.imageRequired+"/preview?project=6606b0ba31e2903fb5d9&width=100&height=100&output=webp"
-              getFilePreview(post?.imageRequired ? post.imageRequired : "")
-              : ""
-          }
+          src={ post ? getFilePreview(post?.imageRequired ? post.imageRequired : ""): ""}
           loading="lazy"
           alt={post.title}
-          className="relative m-4 h-60 group-hover:rounded-b-none group-hover:m-0   rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg object-cover duration-200 group-hover:mb-4 group-hover:h-[16rem]"
+          className="relative m-4 h-60 group-hover:rounded-b-none group-hover:m-0 rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg object-cover duration-200 group-hover:mb-4 group-hover:h-[16rem]"
         />
         <div className="w-auto h-6 duration-400 opacity-70 font-light text-start truncate mx-4">
           {post?.category.slice(0, 2).map((cat: string,i) => i==1? " • " + cat:cat)}
         </div>
         <div className="w-full">
-          <h3 className="m-2 pr-10 text-xl md:text-2xl lg: te xt-3xl font-semibold text-black dark:text-white duration-200 w-full line-clamp-2">
+          <h3 className="mx-4 my-1 pr-16 text-xl md:text-2xl font-semibold text-black dark:text-white duration-200 w-full line-clamp-2 font-serif">
             {post?.title}
           </h3>
           {save && <span

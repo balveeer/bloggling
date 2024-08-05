@@ -1,8 +1,7 @@
 import { ReactNode } from "react";
-
 type ButtonProps = {
   children: ReactNode;
-  type?: 'button' | 'submit' | 'reset'; // Explicitly define the type options
+  type?: 'button' | 'submit' | 'reset';
   bgColor?: string;
   textColor?: string;
   className?: string;
@@ -11,14 +10,14 @@ type ButtonProps = {
 function Button({
   children,
   type = "button",
-  bgColor = "",
-  textColor = "",
+  bgColor = "bg-black hover:bg-white",
+  textColor = "text-white hover:text-black",
   className = "",
   ...props
 }:ButtonProps) {
   return (
     <button
-      className={`px-4 py-2 text-white bg-blue-600 ${textColor} ${className} ${bgColor} `}
+      className={`w-full ${bgColor} ${textColor} rounded-lg px-4 py-2 mt-6   border-black border-2 font-bold ${className}`}
       {...props}
     >
       {children}

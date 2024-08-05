@@ -1,10 +1,7 @@
-
-
-
 function Logo({width=""}) {
   return (
   <div className="relative mr-16"><svg
-  className="w-12 md:w-14 dark:bg-gray-900 bg-white fill-purple-600 dark:fill-white rounded-lg"
+  className="w-12 md:w-14 dark:bg-gray-900 bg-white fill-black dark:fill-white rounded-lg"
     xmlns="http://www.w3.org/2000/svg"
     xmlnsXlink="http://www.w3.org/1999/xlink"
     preserveAspectRatio="xMidYMid meet"
@@ -18,7 +15,7 @@ function Logo({width=""}) {
       />
     </g>
       </svg>
-      <span className={`absolute bottom-0 left-full h-fit w-fit pb-1 pr-1 text-xl rounded-r-lg -translate-x-2.5 text-white dark:text-gray-900 bg-purple-600 dark:bg-white font-sans font-black ${width=="header"?"hidden md:block":""}`}>
+      <span className={`absolute bottom-0 left-full h-fit w-fit pb-1 pr-1 text-xl rounded-r-lg -translate-x-2 text-white dark:text-gray-900 bg-black dark:bg-white font-sans font-black ${width=="header"?"hidden md:block":""}`}>
         loggling
       </span>
   </div>

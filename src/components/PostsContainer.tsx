@@ -18,7 +18,7 @@ function PostsContainer({ title, posts, save = true }: {title: string; posts: Po
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
         { loading && posts.length<1  ?
-        [...new Array(6)].map((index)=><CardLoader key={index} />) 
+        [...new Array(6)].map((_,index)=><CardLoader key={index} />) 
         :
         posts.map((post: PostType) => (
           <PostCard key={post.$id} post={post} save={save} />
