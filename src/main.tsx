@@ -2,13 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
 import { RouterProvider, createBrowserRouter, Route, createRoutesFromElements } from "react-router-dom";
-// import { registerSW } from "";
-// virtual:pwa-register
+//@ts-ignore
+import { registerSW } from 'virtual:pwa-register'
 import App from "./App";
 import "./index.css";
 import store from "./store/store";
-
-// Import your components
 import Home from "./pages/Home";
 import CategoryPosts from "./pages/CategoryPosts";
 import AddPost from "./pages/AddPost";
@@ -22,22 +20,18 @@ import Author from "./pages/Author";
 import MyPosts from "./pages/MyPosts";
 import Profile from "./pages/Profile";
 import ResetPassword from "./pages/ResetPassword";
-// @ts-ignore
-// import { registerSW } from "virtual:pwa-register";
 
-// // Register service worker
-// const updateSW = registerSW({
-//   onNeedRefresh() {
-//     // You can implement a prompt for the user to refresh the page
-//     if (confirm("New content available. Reload?")) {
-//       updateSW(true);
-//     }
-//   },
-//   onOfflineReady() {
-//     console.log("App ready to work offline");
-//     // You can show a notification to the user that the app is ready for offline use
-//   },
-// });
+const updateSW = registerSW({
+  onNeedRefresh() {
+    // Show a prompt to the user to refresh the app
+    if (confirm('New content available. Reload?')) {
+      updateSW(true)
+    }
+  },
+  onOfflineReady() {
+    console.log('App ready to work offline')
+  },
+})
 
 const router = createBrowserRouter(
   createRoutesFromElements(

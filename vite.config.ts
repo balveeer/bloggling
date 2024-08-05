@@ -1,43 +1,31 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
-import { VitePWA } from 'vite-plugin-pwa';
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import { VitePWA } from 'vite-plugin-pwa'
 
 export default defineConfig({
   plugins: [
     react(),
     VitePWA({
       registerType: 'autoUpdate',
-      injectRegister: 'auto',
-      workbox: {
-        globPatterns: ['**/*.{js,css,html,ico,jpg,png,svg,webp,aviv}'],
-      },
+      includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'masked-icon.svg'],
       manifest: {
-        name: 'Slik',
-        short_name: 'Slik',
-        description: "India's finest fashion hand-picked from top brands",
-        theme_color: '#F3E8FF',
-        background_color: '#F3E8FF',
-        start_url: 'https://bloggling.netlify.app',
-        display: 'standalone',
-        prefer_related_applications: false,
+        name: 'Bloggling',
+        short_name: 'Bloggling',
+        description: 'Mind Boggling Blogs...',
+        theme_color: '#ffffff',
         icons: [
           {
-            src: 'android-chrome-192x192.png',
+            src: '/android-chrome-192x192.png',
             sizes: '192x192',
-            type: 'image/png',
-            purpose: 'any'
+            type: 'image/png'
           },
           {
-            src: 'android-chrome-512x512.png',
+            src: '/android-chrome-512x512.png',
             sizes: '512x512',
-            type: 'image/png',
-            purpose: 'maskable'
-          },
-        ],
-      },
-      devOptions: {
-        enabled: false, // for enabling pwa in dev mode ;)
-      },
-    }),
-  ],
-});
+            type: 'image/png'
+          }
+        ]
+      }
+    })
+  ]
+})
