@@ -142,7 +142,7 @@ console.log(post)
             //@ts-ignore
               src={getFilePreview(post.imageRequired)}
               alt={post.title}
-              className=" rounded-xl w-full md:mx-auto max-h-screen"
+              className=" rounded-xl w-auto md:mx-auto max-h-screen"
             />
           </div>
           <div className=" first-letter:capitalize first-letter:mr-2 first-letter:float-left first-letter:text-5xl first-letter:text-gray-500 first-letter:font-bold sm:text-lg md:text-xl lg:text-2xl font-serif my-2">{parse(post.content)}</div>
