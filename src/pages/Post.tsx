@@ -70,7 +70,7 @@ function Post() {
   const authorPosts = () => {
     navigate("/author/" + post.userId);
   };
-
+console.log(post)
   return post &&(
     <div className="mt-4 dark:text-white max-w-5xl mx-auto">
         <div className="flex w-full justify-start items-center">
@@ -82,14 +82,14 @@ function Post() {
             <div className="fixed top-24 right-4 inline-flex flex-nowrap justify-center items-center">
               <Link to={`/edit-post/${post.$id}`}>
                 <button
-                  className="py-2 px-4  rounded-l text-black bg-green-600/50 hover:bg-green-600 hover:text-white border border-black font-semibold "
+                  className="py-2 px-4  rounded-l text-black bg-green-600 hover:text-white border border-black font-semibold "
                 >
                   Edit
                 </button>
               </Link>
               <button
                 onClick={delPost}
-                className="py-2 px-4  rounded-r  text-black bg-red-600/50 hover:bg-red-600 hover:text-white border border-black border-l-0 font-semibold"
+                className="py-2 px-4  rounded-r  text-black bg-red-600 hover:text-white border border-black border-l-0 font-semibold"
               >
                 {load ? (
                   <Load />
@@ -145,7 +145,7 @@ function Post() {
               className=" rounded-xl w-full md:mx-auto max-h-screen"
             />
           </div>
-          <p className=" first-letter:capitalize first-letter:mr-2 first-letter:float-left first-letter:text-5xl first-letter:text-gray-500 first-letter:font-bold sm:text-lg md:text-xl lg:text-2xl font-serif my-2">{parse(post.content)}</p>
+          <div className=" first-letter:capitalize first-letter:mr-2 first-letter:float-left first-letter:text-5xl first-letter:text-gray-500 first-letter:font-bold sm:text-lg md:text-xl lg:text-2xl font-serif my-2">{parse(post.content)}</div>
         </div>
         <Modal open={open} type={user?"verification":"authentication"} onClose={handleClose}  />
     </div>
