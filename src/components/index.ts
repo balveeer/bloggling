@@ -13,7 +13,7 @@ import Modal from "./Modal";
 import Load from "./Load"
 export interface PostType{
     $collectionId?: string;
-    $createdAt?: string;
+    $createdAt: string;
     $databaseId?: string;
     $id: string;
     $permissions?: string[];
