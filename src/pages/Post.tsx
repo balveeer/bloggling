@@ -80,14 +80,14 @@ function Post() {
             <div className="fixed top-24 right-4 inline-flex flex-nowrap justify-center items-center">
               <Link to={`/edit-post/${post.$id}`}>
                 <button
-                  className="py-2 px-4  rounded-l text-black bg-green-600 hover:text-white border border-black font-semibold "
+                  className="py-2 px-4  rounded-l text-white dark:text-black bg-green-600 hover:text-black dark:hover:text-white border border-black font-semibold "
                 >
                   Edit
                 </button>
               </Link>
               <button
                 onClick={delPost}
-                className="py-2 px-4  rounded-r  text-black bg-red-600 hover:text-white border border-black border-l-0 font-semibold"
+                className="py-2 px-4  rounded-r  text-white dark:text-black bg-red-600 hover:text-black dark:hover:text-white border border-black border-l-0 font-semibold"
               >
                 {load ? (
                   <Load />
@@ -140,7 +140,7 @@ function Post() {
             //@ts-ignore
               src={getFilePreview(post.imageRequired)}
               alt={post.title}
-              className=" rounded-xl w-auto md:mx-auto max-h-screen"
+              className=" rounded-xl w-full md:w-auto md:mx-auto max-h-screen"
             />
           </div>
           <div className=" first-letter:capitalize first-letter:mr-2 first-letter:float-left first-letter:text-5xl first-letter:text-gray-500 first-letter:font-bold sm:text-lg md:text-xl lg:text-2xl font-serif my-2">{parse(post.content)}</div>

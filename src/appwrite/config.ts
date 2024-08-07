@@ -49,7 +49,6 @@ async function updatePost(
   slug: string,
   { title, author, content, category, imageRequired, saves, views = 6 }: Post
 ) {
-  // console.log(views, title, author , content, category, imageRequired,saves)
   try {
     return await databases.updateDocument(
       conf.appwriteDatabaseId,
