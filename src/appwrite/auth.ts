@@ -75,11 +75,10 @@ async function getCurrentUser() {
         store.dispatch(setUser(user));
         return true;
       } else {
-        // console.log("User is not logged in.");
         return null; // Or redirect to login or provide guest information
       }
     } catch (error) {
-      // console.log("Appwrite service :: getCurrentUser :: error", error);
+      return null
     }
   }
 }
@@ -94,12 +93,12 @@ async function logout() {
 
 async function emailVerification() {
   try {
-    // "https://localhost/verify-email"
     const verification = await account.createVerification(
       "https://bloggling.netlify.app/verify-email"
     );
     return verification;
   } catch (error) {
+    throw error
     // console.log("Appwrite service :: createEmailVerification :: error", error);
   }
 }
@@ -109,6 +108,7 @@ async function updateEmailverification(userId: string, secret: string) {
     const verification = await account.updateVerification(userId, secret);
     return verification;
   } catch (error) {
+    return false;
     // console.log("Appwrite service :: updateEmailVerification :: error", error);
   }
 }
@@ -116,13 +116,12 @@ async function updateEmailverification(userId: string, secret: string) {
 async function resetPassword(
   Email: string,
   url = "https://bloggling.netlify.app/reset-password"
-  // "http://localhost:5173/reset-password"
 ) {
   try {
     const response = await account.createRecovery(Email, url);
     if (response) return true;
   } catch (error) {
-    // console.log(error);
+    return false;
   }
 }
 
@@ -135,7 +134,6 @@ async function updateResetPassword(
     const response = await account.updateRecovery(userId, secret, password);
     if (response) return true;
   } catch (error) {
-    // console.log(error);
     return false;
   }
 }

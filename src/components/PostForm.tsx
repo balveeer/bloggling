@@ -10,7 +10,7 @@ export default function PostForm({post}:any) {
   const [limit, setLimit] = useState(0);
   const [image,setImage] = useState("");
   const [photo, setPhoto] = useState(null);
-  const [message, setMessage] = useState("");
+  const [error, setError] = useState("");
   const { register, handleSubmit, watch, setValue, control, getValues } =
     useForm({
       defaultValues: {
@@ -28,7 +28,6 @@ export default function PostForm({post}:any) {
       if (photo) {
         deleteFile(post?.imageRequired);
         const fileId :any = await uploadFile(photo);
-        // console.log("submit fileId",fileId)
         data.imageRequired = fileId?.$id;
         data.saves = [user?.$id]
       }
@@ -47,7 +46,7 @@ export default function PostForm({post}:any) {
           getPosts();
         }
       }
-      else{setMessage("add image")}
+      else{setError("add image")}
     }
   };
 
@@ -63,7 +62,6 @@ export default function PostForm({post}:any) {
 
   useEffect(() => {
     if (post) {
-    //@ts-ignore
       setImage(getFilePreview(post.imageRequired));
     }
   }, []);
@@ -93,7 +91,7 @@ export default function PostForm({post}:any) {
 
   return (
     <form onSubmit={handleSubmit(submit)} className="flex flex-wrap py-8">
-      {message&&<span className="w-full p-4 m-4 text-xl bg-white dark:bg-black text-red-600 dark:text-red-600 ring-2 ring-black dark:ring-white text-center rounded-full ">{message}
+      {error&&<span className="w-full p-4 m-4 text-xl bg-white dark:bg-black text-red-600 dark:text-red-600 ring-2 ring-black dark:ring-white text-center rounded-full ">{error}
       </span>}
       <div className="w-full md:w-2/3 px-2">
         <Input
@@ -173,7 +171,7 @@ export default function PostForm({post}:any) {
         >
           {post ? "Update Post" : "Create Post"}
         </button>
-    </form>
+        </form>
     
   );
 }

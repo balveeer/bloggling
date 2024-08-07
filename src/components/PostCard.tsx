@@ -62,7 +62,7 @@ const PostCard: React.FC<{ post: PostType, save: boolean }> = ({ post, save=true
           {post?.category.slice(0, 2).map((cat: string,i) => i==1? " • " + cat:cat)}
         </div>
         <div className="w-full">
-          <h3 className="mx-4 my-1 pr-16 text-xl md:text-2xl font-semibold text-black dark:text-white duration-200 w-full line-clamp-2 font-serif">
+          <h3 className="mx-4 my-1 min-h-12 pr-16 text-xl md:text-2xl font-semibold text-black dark:text-white duration-200 w-full line-clamp-2 font-serif">
             {post?.title}
           </h3>
           {save && <span
