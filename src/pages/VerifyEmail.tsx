@@ -12,6 +12,7 @@ function VerifyEmail() {
   const secret = urlParams.get("secret");
   const userId = urlParams.get("userId");
   const user:UserType = useAppSelector(userData)
+  const email = user?.email
   useEffect(() => {
     if (user) {
       setVerified(user?.emailVerification);
@@ -22,13 +23,13 @@ function VerifyEmail() {
       }
      else{
       emailVerification();
-      setMessage("Verification Mail Sent Successfully, Check Your Inbox.")
+      setMessage(`Verification Mail Sent to ${email} Check Your Inbox.`)
     };
     }
 }, [user]);
   
   const createVerification = () => {emailVerification();
-    setMessage("Verification Mail Sent Successfully, Check Your Inbox.")
+    setMessage(`Verification Mail Sent to ${email} Check Your Inbox.`)
   };
 
   if (!verified)

@@ -106,7 +106,7 @@ function Login() {
             </div>
             <button
               type="submit"
-              className="w-full rounded-lg px-4 py-2 mt-6 text-white hover:text-black bg-black hover:bg-white border-black border-2 font-bold"
+              className="w-full rounded-lg px-4 py-2 mt-6 text-white dark:text-black hover:text-black bg-black dark:bg-white hover:bg-white dark:hover:text-white dark:hover:bg-black border-black dark:border-white border-2 font-bold"
             >
               {load ?( 
               <Load />
