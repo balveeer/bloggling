@@ -7,7 +7,7 @@ function Footer() {
       <span className="flex flex-col sm:flex-row justify-around content-between">
         <div className="z-10 px-4">
           <div className="">
-            <div className="w-full flex justify-center sm:justify-start items-center grayscale hover:grayscale-0 duration-200">
+            <div className="w-full flex justify-center sm:justify-start items-center opacity-50 hover:opacity-100 duration-200">
               <Logo />
             </div>
           </div>

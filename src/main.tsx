@@ -20,6 +20,7 @@ import Author from "./pages/Author";
 import MyPosts from "./pages/MyPosts";
 import Profile from "./pages/Profile";
 import ResetPassword from "./pages/ResetPassword";
+import MySaved from "./pages/MySaved";
 
 const updateSW = registerSW({
   onNeedRefresh() {
@@ -41,6 +42,7 @@ const router = createBrowserRouter(
       <Route path="signup" element={<Signup />} />
       <Route path="author/:slug" element={<Author />} />
       <Route path="my-posts" element={<MyPosts />} />
+      <Route path="my-saved" element={<MySaved />} />
       <Route path="edit-post/:slug" element={<EditPost />} />
       <Route path="add-post" element={<AddPost />} />
       <Route path="post/:slug" element={<Post />} />

@@ -7,8 +7,8 @@ function Modal({ open,type, onClose }: { open: boolean;type:"verification"|"auth
       onClick={(e)=>onClose(e)}
       className="fixed left-0 top-0 z-20 w-full h-screen outline-none flex justify-center items-center backdrop-blur-md"
     >
-      <div className="min-h-48 min-w-48 px-4 w-auto sm:h-96 sm:w-96 bg-violet-300/70 dark:bg-gray-700 border-2 rounded-lg z-20 p-auto py-8 relative" onClick={(e)=>e.stopPropagation()}>
-        <button onClick={(e)=>onClose(e)} className="px-2 rounded-lg absolute hover:bg-white bg-purple-200 top-2 right-2 sm:text-2xl font-semibold font-sans">
+      <div className="min-h-48 min-w-48 px-4 w-auto sm:h-96 sm:w-96 bg-gray-100 dark:bg-gray-700 border-2 rounded-lg z-20 p-auto py-8 relative" onClick={(e)=>e.stopPropagation()}>
+        <button onClick={(e)=>onClose(e)} className="px-2 rounded-lg absolute hover:bg-white bg-gray-200 top-2 right-2 sm:text-2xl font-semibold font-sans">
           X
         </button>
         <h2 className="h-20 w-full sm:text-xl md:text-2xl font-bold text-center ">

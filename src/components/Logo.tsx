@@ -15,7 +15,7 @@ function Logo({width=""}) {
       />
     </g>
       </svg>
-      <span className={`absolute bottom-0 left-full h-fit w-fit pb-1 pr-1 text-xl rounded-r-lg -translate-x-2 text-white dark:text-gray-900 bg-black dark:bg-white font-sans font-black ${width=="header"?"hidden md:block":""}`}>
+      <span className={`absolute bottom-0 select-none left-full h-fit w-fit pb-1 pr-1 text-xl rounded-r-lg -translate-x-2 text-white dark:text-gray-900 bg-black dark:bg-white font-sans font-black ${width=="header"?"hidden md:block":""}`}>
         loggling
       </span>
   </div>

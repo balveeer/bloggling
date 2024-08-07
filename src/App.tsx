@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { getPosts } from "./appwrite/config";
 import {getCurrentUser} from "./appwrite/auth";
 import { Header, Footer } from "./components/index";
-import { Outlet, ScrollRestoration, useLocation } from "react-router-dom";
+import { Outlet, ScrollRestoration } from "react-router-dom";
 
 function App() {
   useEffect(()=>{

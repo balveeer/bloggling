@@ -28,6 +28,12 @@ export interface PostType{
     saves:string[];
     views:number;
   }
+  
+export interface NavItemsType {
+  name: string;
+  slug: string;
+  active: boolean;
+}
   export interface UserType {
     $id: string;
     $createdAt: string;

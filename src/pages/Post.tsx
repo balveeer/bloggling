@@ -22,7 +22,6 @@ function Post() {
     setLoad(true);
     deleteFile(post?.imageRequired);
     deletePost(post.$id).then((status) => {
-      console.log("deletePost - status" , status)
       if (status) {
         navigate(-1);
       }
@@ -70,7 +69,6 @@ function Post() {
   const authorPosts = () => {
     navigate("/author/" + post.userId);
   };
-console.log(post)
   return post &&(
     <div className="mt-4 dark:text-white max-w-5xl mx-auto">
         <div className="flex w-full justify-start items-center">
@@ -100,7 +98,7 @@ console.log(post)
             </div>
           )}
         <div className="w-full flex flex-col md:flex-row justify-center">
-        <div className={`p-2 my-2 flex justify-around gap-x-2 bg-purple-200 dark:bg-gray-900 rounded-lg w-full h-min md:w-1/2  text-sm sm:text-base md:text-lg lg:text-xl` } >
+        <div className={`p-2 my-2 flex justify-around gap-x-2 bg-indigo-200 dark:bg-gray-900 rounded-lg w-full h-min md:w-1/2  text-sm sm:text-base md:text-lg lg:text-xl` } >
           <h2 className="text-gray-700 dark:text-white px-2">
             ✍🏼 {post.author?(<span onClick={authorPosts} className="capitalize hover:no-underline underline hover:text-black dark:hover:text-white dark:text-white cursor-pointer">{post.author}</span>):"Unknown"}
           </h2>
@@ -132,7 +130,7 @@ console.log(post)
         <div className="w-auto flex flex-wrap items-center justify-center gap-2 px-4">
         {post.category.map((cat:string)=>
         <Link key={cat.slice(0,3)} to={`/category/${cat.split(" ").join("-").toLowerCase()}`}
-        className="rounded-2xl h-min text-sm sm:text-base md:text-lg lg:text-xl bg-purple-200  dark:bg-gray-900 dark:text-white/70 dark:hover:text-white px-4 p-1 cursor-pointer"><i>#{cat}</i></Link>
+        className="rounded-2xl h-min text-sm sm:text-base md:text-lg lg:text-xl bg-indigo-200  dark:bg-gray-900 dark:text-white/70 dark:hover:text-white px-4 p-1 cursor-pointer"><i>#{cat}</i></Link>
         )}
         </div>
         </div>

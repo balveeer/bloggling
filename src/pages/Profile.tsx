@@ -54,7 +54,7 @@ function Profile() {
           ) : (
             <div
               onClick={() => navigate("/verify-email")}
-              className="inline mx-2 rounded-full px-4 p-1 text-gray-700 bg-gray-300 hover:bg-gray-200 hover:cursor-help "
+              className="inline mx-2 rounded-full px-4 p-1 text-gray-700 bg-gray-400 hover:bg-gray-200 hover:cursor-help "
             >
               unverified
             </div>

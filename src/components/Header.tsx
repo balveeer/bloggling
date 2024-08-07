@@ -1,27 +1,22 @@
-//@ts-nocheck
-import { Logo, LogoutBtn } from "./index.js";
+import { Logo, LogoutBtn, NavItemsType } from "./index.js";
 import { Link, useNavigate, NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 const windowDarkTheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
-interface navItems {
-  name: string;
-  slug: string;
-  active: boolean;
-}
 function Header() {
-  const [theme, setTheme] = useState(null);
+  const [theme, setTheme] = useState<boolean | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
-
+  const [isHidden, setIsHidden] = useState(false);
   const [open, setOpen] = useState(false);
+
+  const headerRef = useRef<HTMLElement>(null);
   const authStatus = useSelector(
     (state: { auth: { status: boolean } }) => state.auth.status
   );
   const navigate = useNavigate();
-  const dispatch = useDispatch();
   const html: any = document.querySelector("html");
 
-  const navItems: [navItems] = [
+  const navItems: NavItemsType[] = [
     {
       name: "Home",
       slug: "/",
@@ -43,6 +38,11 @@ function Header() {
       active: authStatus,
     },
     {
+      name: "Saved Posts",
+      slug: "/my-saved",
+      active: authStatus,
+    },
+    {
       name: "Add Post",
       slug: "/add-post",
       active: authStatus,
@@ -54,20 +54,27 @@ function Header() {
   if(!windowDarkTheme && theme === null){
     setTheme(true)
   }
-
   useEffect(() => {
+    let prevScrollY = window.scrollY;
+
     const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      setIsScrolled(scrollPosition > 100);
+      const currentScrollY = window.scrollY;
+      const headerHeight = headerRef.current?.offsetHeight || 0;
+
+      setIsScrolled(currentScrollY <= headerHeight);
+      setIsHidden(currentScrollY > prevScrollY && currentScrollY > headerHeight);
+
+      prevScrollY = currentScrollY;
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const headerStyle = {
+    transform: `translateY(${isHidden ? '-100%' : '0'})`,
+    transition: 'transform 0.3s ease-in-out',
+  };
   useEffect(() => {
     html.classList.remove("light", "dark");
     theme ? html.classList.add("light") : html.classList.add("dark");
@@ -80,7 +87,9 @@ function Header() {
   return (
     <>
       <header
-        className={`fixed z-50 ${
+      ref={headerRef}
+      style={headerStyle}
+        className={`sticky top-0 z-50 ${
           isScrolled ? "h-20" : "h-24"
         } transition-all duration-300 w-full px-4 shadow-md backdrop-blur-[.625rem] bg-gray-50/50 dark:bg-gray-800/50`}
       >
@@ -90,7 +99,6 @@ function Header() {
             <Logo width="header" />
             </Link>
           </div>
-
           <ul className="hidden md:flex justify-end items-center gap-2 w-auto ml-auto">
             {navItems.map((item) =>
               item.active ? (
@@ -102,7 +110,7 @@ function Header() {
                         isActive
                           ? "border-b-2 cursor-default text-black"
                           : "text-black hover:opacity-70"
-                      } dark:text-white border-black dark:border-white dark:ring-gray-300 lance   font-medium `
+                      } dark:text-white border-black dark:border-white dark:ring-gray-300 font-medium `
                     }
                   >
                     {item.name}
@@ -218,20 +226,15 @@ function Header() {
           </div>
         </nav>
       </header>
-      <div className={`w-full ${isScrolled ? "h-20" : "h-24"}`}></div>
+      {/* <div className={`w-full ${isScrolled ? "h-20" : "h-24"}`}></div> */}
       <div
         onClick={() => setOpen(!open)}
-        className={`${
-          open ? "absolute" : "hidden w-0"
-        }  md:hidden md:w-0 h-full z-40 w-full`}
-      ></div>
-      <div
-        className={`w-2/3 sm:w-1/2 md:hidden fixed z-50 pr-4 right-0 h-screen overflow-x-hidden transition-all duration-300 ease-in  text-xl font-semibold  shadow-md backdrop-blur-[.625rem] bg-gray-300/70 dark:bg-gray-800/50 ${
+        className={`w-full md:hidden fixed z-50 pr-4 right-0 h-screen overflow-x-hidden transition-all duration-300 ease-in   ${
           isScrolled ? "top-20" : "top-24"
         } ${open ? "translate-x-0" : "translate-x-1/2 scale-x-0 "}`}
       >
-        <nav>
-          <ul className="flex flex-col justify-start items-start dark:*:text-white *:ms-2 *:py-4 mr-auto w-full *:truncate *:border-b-2 *:border-gray-500/50 *:dark:border-gray-500/50 *:box-border hover:*:bg-gray-400 hover:*:dark:bg-gray-700/80">
+        <nav className={`w-2/3 sm:w-1/2 h-full z-60 bg-gray-50/50 dark:bg-gray-800/50 text-xl font-semibold shadow-md backdrop-blur-[.625rem] ml-auto`}>
+          <ul className="flex flex-col justify-start items-start dark:*:text-white *:ms-2 *:py-4 mr-auto w-full *:truncate *:border-b-2 *:border-black/50 *:dark:border-gray-500/50 *:box-border hover:*:bg-gray-400 hover:*:dark:bg-gray-700/80">
             {navItems.map((item) =>
               item.active ? (
                 <NavLink
