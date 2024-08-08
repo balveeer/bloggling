@@ -21,7 +21,7 @@ import MyPosts from "./pages/MyPosts";
 import Profile from "./pages/Profile";
 import ResetPassword from "./pages/ResetPassword";
 import MySaved from "./pages/MySaved";
-
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 const updateSW = registerSW({
   onNeedRefresh() {
     // Show a prompt to the user to refresh the app
@@ -50,6 +50,7 @@ const router = createBrowserRouter(
       <Route path="category/:slug" element={<CategoryPosts />} />
       <Route path="verify-email" element={<VerifyEmail />} />
       <Route path="reset-password" element={<ResetPassword />} />
+      <Route path="privacy-policy" element={<PrivacyPolicy />} />
       <Route path="*" element={<NotFound />} />
     </Route>
   )
