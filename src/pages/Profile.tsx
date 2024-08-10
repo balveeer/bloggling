@@ -37,7 +37,7 @@ function Profile() {
     );
   return (
     <div className="py-4">
-      <div className="w-full block md:flex items-center justify-center bg-gray-300 dark:bg-gray-800 py-2">
+      <div className="w-full block md:flex items-center justify-center bg-indigo-200 dark:bg-gray-800 py-2">
         <div className="flex h-full mx-2">
         <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -91,30 +91,30 @@ function Profile() {
           onClick={() => {
             setSelected("all");
           }}
-          className={`min-w-20 p-2 px-4 rounded-full text-center hover:bg-gray-700 hover:dark:bg-gray-300 hover:text-white hover:dark:text-black ${
+          className={`min-w-20 p-2 px-4 rounded-full text-center hover:bg-indigo-400 hover:dark:bg-gray-300 hover:text-white hover:dark:text-black ${
             selected == "all"
-              ? "bg-gray-700 dark:bg-gray-300 text-white dark:text-black "
-              : "bg-gray-300 dark:bg-gray-900 text-black dark:text-white"
+              ? "bg-indigo-500 dark:bg-gray-300 text-white dark:text-black "
+              : "bg-indigo-200 dark:bg-gray-900 text-black dark:text-white"
           }`}
         >
           All
         </button>
         <button
           onClick={() => setSelected("created")}
-          className={`min-w-20 p-2 px-4 rounded-full text-center hover:bg-gray-700 hover:dark:bg-gray-300 hover:text-white hover:dark:text-black ${
+          className={`min-w-20 p-2 px-4 rounded-full text-center hover:bg-indigo-400 hover:dark:bg-gray-300 hover:text-white hover:dark:text-black ${
             selected == "created"
-              ? "bg-gray-700 dark:bg-gray-300 text-white dark:text-black "
-              : "bg-gray-300 dark:bg-gray-900 text-black dark:text-white"
+              ? "bg-indigo-500 dark:bg-gray-300 text-white dark:text-black "
+              : "bg-indigo-200 dark:bg-gray-900 text-black dark:text-white"
           }`}
         >
           Created
         </button>
         <button
           onClick={() => setSelected("saved")}
-          className={`min-w-20 p-2 px-4 rounded-full text-center hover:bg-gray-700 hover:dark:bg-gray-300 hover:text-white hover:dark:text-black ${
+          className={`min-w-20 p-2 px-4 rounded-full text-center hover:bg-indigo-400 hover:dark:bg-gray-300 hover:text-white hover:dark:text-black ${
             selected == "saved"
-              ? "bg-gray-700 dark:bg-gray-300 text-white dark:text-black "
-              : "bg-gray-300 dark:bg-gray-900 text-black dark:text-white"
+              ? "bg-indigo-500 dark:bg-gray-300 text-white dark:text-black "
+              : "bg-indigo-200 dark:bg-gray-900 text-black dark:text-white"
           }`}
         >
           Saved

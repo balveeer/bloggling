@@ -7,7 +7,7 @@ export interface Post {
   slug: string;
   content: string;
   category?: string[];
-  imageRequired: string;
+  image: string;
   status: boolean;
   author?: string;
   saves: string[];
@@ -20,7 +20,7 @@ const databases = new Databases(client);
 const storage = new Storage(client);
 
 async function createPost(
-  { title, slug, content, category, imageRequired, status, saves }: Post,
+  { title, slug, content, category, image, status, saves }: Post,
   userId: string,
   author: string
 ) {
@@ -33,7 +33,7 @@ async function createPost(
         title,
         content,
         category,
-        imageRequired,
+        image,
         status,
         userId,
         author,
@@ -47,7 +47,7 @@ async function createPost(
 
 async function updatePost(
   slug: string,
-  { title, author, content, category, imageRequired, saves, views = 6 }: Post
+  { title, author, content, category, image, saves, views = 6 }: Post
 ) {
   try {
     return await databases.updateDocument(
@@ -58,7 +58,7 @@ async function updatePost(
         title,
         author,
         content,
-        imageRequired,
+        image,
         category,
         saves,
         views,
