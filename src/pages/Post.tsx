@@ -143,7 +143,7 @@ function Post() {
               className=" rounded-xl w-full md:w-auto md:mx-auto max-h-screen"
             />
           </div>
-          <div className=" first-letter:capitalize first-letter:mr-2 first-letter:float-left first-letter:text-5xl first-letter:text-gray-500 first-letter:font-bold sm:text-lg md:text-xl lg:text-2xl font-serif my-2">{parse(post.content)}</div>
+          <div className=" first-letter:capitalize first-letter:mr-2 first-letter:float-left first-letter:text-5xl first-letter:text-gray-500 first-letter:font-bold text-xl md:text-xl lg:text-2xl font-serif my-2">{parse(post.content)}</div>
         </div>
         <Modal open={open} type={user?"verification":"authentication"} onClose={handleClose}  />
     </div>
