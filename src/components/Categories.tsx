@@ -1,18 +1,18 @@
 import React, { useId,useState } from "react";
 const category = [
-  'Technology',
-  'Lifestyle',
-  'Travel',
-  'Food',
-  'Health and Fitness',
-  'Business and Entrepreneurship',
-  'Personal Development',
-  'Arts and Culture',
-  'Parenting',
-  'Education',
-  'Entertainment',
-  'Sports'
-  ];
+  "Technology",
+  "Nature",
+  "Health",
+  "Business",
+  "Politics",
+  "Entertainment",
+  "Science",
+  "Travel",
+  "Food",
+  "Sports",
+  "Education",
+  "Arts"
+];
 
 function Categories({props,defaultValue=[],onCatChange,className}:any,ref:any ) {
   const [selectedCat, setSelectedCat] = React.useState<string[]>([])

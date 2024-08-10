@@ -1,18 +1,18 @@
 import { Link } from "react-router-dom";
 
 const category = [
-  'Technology',
-  'Lifestyle',
-  'Travel',
-  'Food',
-  'Health and Fitness',
-  'Business and Entrepreneurship',
-  'Personal Development',
-  'Arts and Culture',
-  'Parenting',
-  'Education',
-  'Entertainment',
-  'Sports'
+  "Technology",
+  "Nature",
+  "Health",
+  "Business",
+  "Politics",
+  "Entertainment",
+  "Science",
+  "Travel",
+  "Food",
+  "Sports",
+  "Education",
+  "Arts"
 ];
 
 function Category() {
