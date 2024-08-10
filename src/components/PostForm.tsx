@@ -26,9 +26,9 @@ export default function PostForm({post}:any) {
   const submit = async (data:any) => {
     if (post) {
       if (photo) {
-        deleteFile(post?.imageRequired);
+        deleteFile(post?.image);
         const fileId :any = await uploadFile(photo);
-        data.imageRequired = fileId?.$id;
+        data.image = fileId?.$id;
         data.saves = [user?.$id]
       }
         console.log('data', data)
@@ -39,7 +39,7 @@ export default function PostForm({post}:any) {
       if(photo){
         const file = await uploadFile(photo);
         if (file) {
-          data.imageRequired = file.$id;
+          data.image = file.$id;
           let userId = user?.$id;
           const dbPost = await createPost(data, userId, user.name);
           if (dbPost) navigate(`/post/${dbPost.$id}`)
@@ -62,7 +62,7 @@ export default function PostForm({post}:any) {
 
   useEffect(() => {
     if (post) {
-      setImage(getFilePreview(post.imageRequired));
+      setImage(getFilePreview(post.image));
     }
   }, []);
 
