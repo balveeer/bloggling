@@ -53,7 +53,7 @@ function PrivacyPolicy() {
     Last updated: 8/8/2024
   </p>
 </div>
-<div className="bg-indigo-200 dark:bg-gray-900 mb-10 dark:text-white my-10 py-6 px-2 md:px-10  rounded-lg shadow-md">
+<div id="terms&conditions" className="bg-indigo-200 dark:bg-gray-900 mb-10 dark:text-white my-10 py-6 px-2 md:px-10  rounded-lg shadow-md">
       <h1 className="text-2xl font-semibold mb-4">Terms and Conditions for Bloggling</h1>
 
       <h2 className="text-xl font-semibold mb-2">1. Introduction</h2>
