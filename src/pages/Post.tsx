@@ -20,7 +20,7 @@ function Post() {
     const date = new Date(post?.$createdAt).toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" });
   const delPost = () => {
     setLoad(true);
-    deleteFile(post?.imageRequired);
+    deleteFile(post?.image);
     deletePost(post.$id).then((status) => {
       if (status) {
         navigate(-1);
@@ -44,7 +44,7 @@ function Post() {
             author: post?.author,
             content: post?.content,
             category: post?.category,
-            imageRequired: post.imageRequired,
+            image: post.image,
             saves: tempSave,
           });
         } 
@@ -58,7 +58,7 @@ function Post() {
         author: post?.author,
         content: post?.content,
         category: post?.category,
-        imageRequired: post?.imageRequired,
+        image: post?.image,
         saves: [...post.saves, user?.$id],
       });
     }
@@ -138,7 +138,7 @@ function Post() {
           <div className="w-full justify-center my-2">
             <img
             //@ts-ignore
-              src={getFilePreview(post.imageRequired)}
+              src={getFilePreview(post.image)}
               alt={post.title}
               className=" rounded-xl w-full md:w-auto md:mx-auto max-h-screen"
             />

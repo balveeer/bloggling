@@ -23,7 +23,7 @@ export interface PostType{
     content: string;
     author:string;
     category: string[];
-    imageRequired:string;
+    image:string;
     userId:string;
     saves:string[];
     views:number;

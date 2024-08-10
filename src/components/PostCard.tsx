@@ -22,7 +22,7 @@ const PostCard: React.FC<{ post: PostType, save: boolean }> = ({ post, save=true
             author: post?.author,
             content: post?.content,
             category: post?.category,
-            imageRequired: post.imageRequired,
+            image: post?.image,
             saves: tempSave,
           });
         } 
@@ -36,7 +36,7 @@ const PostCard: React.FC<{ post: PostType, save: boolean }> = ({ post, save=true
         author: post?.author,
         content: post?.content,
         category: post?.category,
-        imageRequired: post?.imageRequired,
+        image: post?.image,
         saves: [...post.saves, user?.$id],
       });
     }
@@ -53,7 +53,7 @@ const PostCard: React.FC<{ post: PostType, save: boolean }> = ({ post, save=true
       <Link to={`/post/${post?.$id}`} className="mx-auto relative flex max-w-[20rem] flex-col rounded-xl bg-gray-50 hover:bg-gray-200 bg-clip-border dark:bg-gray-900/70 hover:dark:bg-gray-900 dark:text-white group duration-200 hover:shadow-xl shadow-violet-200 dark:shadow-gray-800 active:scale-95">
         <img
           //@ts-ignore
-          src={ post ? getFilePreview(post?.imageRequired ? post.imageRequired : ""): ""}
+          src={ post ? getFilePreview(post?.image ? post.image : ""): ""}
           loading="lazy"
           alt={post.title}
           className="relative m-4 h-60 group-hover:rounded-b-none group-hover:m-0 rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg object-cover duration-200 group-hover:mb-4 group-hover:h-[16rem]"
