@@ -38,6 +38,28 @@ function Profile() {
   return (
     <div className="py-4">
       <div className="w-full block md:flex items-center justify-center bg-gray-300 dark:bg-gray-800 py-2">
+        <div className="flex h-full mx-2">
+        <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="dark:text-white h-16 aspect-square text-black"
+                  viewBox="0 0 512 512"
+                >
+                  <path
+                    d="M344 144c-3.92 52.87-44 96-88 96s-84.15-43.12-88-96c-4-55 35-96 88-96s92 42 88 96z"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="40"
+                  />
+                  <path
+                    d="M256 304c-87 0-175.3 48-191.64 138.6C62.39 453.52 68.57 464 80 464h352c11.44 0 17.62-10.48 15.65-21.4C431.3 352 343 304 256 304z"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeMiterlimit="10"
+                    strokeWidth="40"
+                  />
+        </svg>
         <div className="flex-col justify-center items-center text-gray-800 dark:text-white  rounded-lg w-full">
           <h3 className=" text-start font-light md:text-lg lg:text-lg px-2 p-1 ">
               {user?.name}
@@ -46,6 +68,8 @@ function Profile() {
               {user?.email}
           </h3>
         </div>
+        </div>
+        
         <div className="flex items-center justify-around w-full pt-2">
           {user?.emailVerification ? (
             <div className="inline-block mx-2 rounded-full px-4 p-1 text-green-700  bg-green-300 ">

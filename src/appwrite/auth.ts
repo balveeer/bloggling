@@ -57,12 +57,9 @@ async function googleLogin() {
     );
     if (response) {
       getCurrentUser();
-      return true;
-    } else {
-      return false;
     }
   } catch (error) {
-    throw error;
+    console.error("OAuth error:", error);
   }
 }
 

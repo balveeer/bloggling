@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import {emailVerification,updateEmailverification} from "../appwrite/auth";
+import {emailVerification,getCurrentUser,updateEmailverification} from "../appwrite/auth";
 import { useNavigate } from "react-router-dom";
 import { useAppSelector } from "../store/hooks";
 import { userData } from "../store/authSlice";
@@ -20,6 +20,7 @@ function VerifyEmail() {
         setVerified(true);
         setMessage("Email Verified SuccessFully.")
         updateEmailverification(userId, secret);
+        getCurrentUser();
       }
      else{
       emailVerification();
