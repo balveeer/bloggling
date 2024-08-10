@@ -30,10 +30,5 @@ const postSlice = createSlice({
 });
 
 export const {setPosts,updateSave,updateViews} = postSlice.actions;
-
-// export const { addPost, updatePost, deletePost, getPosts, getLikes, updateLike} =  postSlice.actions;
 export const selectPosts = (state:RootState) => state.posts.posts;
-// export const selectCollections = (state: RootState) => state.posts.collections;
-// export const selectLikes = (state: RootState) => state.posts.likes;
-
 export default postSlice.reducer
