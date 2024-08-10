@@ -229,12 +229,12 @@ function Header() {
       {/* <div className={`w-full ${isScrolled ? "h-20" : "h-24"}`}></div> */}
       <div
         onClick={() => setOpen(!open)}
-        className={`w-full md:hidden fixed z-50 pr-4 right-0 h-screen overflow-x-hidden transition-all duration-300 ease-in   ${
+        className={`w-full md:hidden fixed z-50 right-0 h-screen overflow-x-hidden transition-all duration-300 ease-in   ${
           isScrolled ? "top-20" : "top-24"
         } ${open ? "translate-x-0" : "translate-x-1/2 scale-x-0 "}`}
       >
-        <nav className={`w-2/3 sm:w-1/2 h-full z-60 bg-gray-50/50 dark:bg-gray-800/50 text-xl font-semibold shadow-md backdrop-blur-[.625rem] ml-auto`}>
-          <ul className="flex flex-col justify-start items-start dark:*:text-white *:ms-2 *:py-4 mr-auto w-full *:truncate *:border-b-2 *:border-black/50 *:dark:border-gray-500/50 *:box-border hover:*:bg-gray-400 hover:*:dark:bg-gray-700/80">
+        <nav className={`w-2/3 sm:w-1/2 h-full pr-4 z-60 bg-gray-50/50 dark:bg-gray-800/50 text-xl font-semibold shadow-md backdrop-blur-[.625rem] ml-auto`} onClick={(e)=>{e.preventDefault(),e.stopPropagation()}}>
+          <ul className="flex flex-col justify-start items-start dark:*:text-white *:ms-2 *:py-4 mr-auto w-full *:truncate *:border-b-2 *:border-indigo-400 *:dark:border-gray-500/50 *:box-border hover:*:bg-indigo-200 hover:*:dark:bg-gray-700/80">
             {navItems.map((item) =>
               item.active ? (
                 <NavLink
@@ -244,7 +244,7 @@ function Header() {
                   className={({ isActive }) =>
                     `w-full p-2 text-end duration-300 ring-0 ring-black border-0 border-black dark:ring-gray-300 font-semibold text-black hover:bg-gray-400 hover:dark:bg-gray-700/80 ${
                       isActive
-                        ? "bg-gray-400 dark:bg-gray-700/80"
+                        ? "bg-indigo-200 dark:bg-gray-700/80"
                         : "opacity-70"
                     }`
                   }
