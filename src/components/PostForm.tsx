@@ -55,8 +55,8 @@ export default function PostForm({post}:any) {
       return value
         .trim()
         .toLowerCase()
-        .replace(/[^a-zA-Z\d\s]+/g, "-")
-        .replace(/\s/g, "-").slice(0,32);
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-+|-+$/g, '').slice(0,32);
     return "";
   }, []);
 
