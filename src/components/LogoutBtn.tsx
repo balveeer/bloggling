@@ -22,7 +22,7 @@ function LogoutBtn({className=""}) {
     user && <button
       className={`min-w-32 text-center inline-block hover:drop-shadow-lg px-6 py-2 duration-200 text-red-500 hover:text-white  hover:dark:bg-red-600 hover:bg-red-600  rounded-xl hover:rounded-s-xl ${load?" bg-red-600":"bg-white"} ${className}`}
       onClick={logoutHandler}
-    >{load?<Load/>:"Logout"}<LogoutIcon className='w-6 h-6 inline dark:fill-white ml-2' />
+    >{load?<Load/>:"Logout"}<LogoutIcon className='w-6 h-6 inline ml-2' />
       
     </button>
   );

@@ -1,5 +1,5 @@
 import { Logo, LogoutBtn, NavItemsType } from "./index.js";
-import { HomeIcon, MySavesIcon, MyPostsIcon, AddPostIcon, LightIcon, DarkIcon, ProfileIcon, LogoutIcon } from "./icons.js";
+import { HomeIcon, MySavesIcon, MyPostsIcon, AddPostIcon, LightIcon, DarkIcon, ProfileIcon, LoginIcon, SignupIcon} from "./icons.js";
 import { Link, useNavigate, NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useEffect, useRef, useState } from "react";
@@ -28,13 +28,13 @@ function Header() {
       name: "Login",
       slug: "/login",
       active: !authStatus,
-      icon:HomeIcon,
+      icon:LoginIcon,
     },
     {
       name: "Signup",
       slug: "/signup",
       active: !authStatus,
-      icon:HomeIcon,
+      icon:SignupIcon,
     },
     {
       name: "My Posts",
