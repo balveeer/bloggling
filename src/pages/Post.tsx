@@ -77,7 +77,7 @@ function Post() {
         </h1>
         </div>
         {isAuthor && (
-            <div className="fixed top-24 right-4 inline-flex flex-nowrap justify-center items-center">
+            <div className="fixed z-50 top-24 right-4 inline-flex flex-nowrap justify-center items-center">
               <Link to={`/edit-post/${post.$id}`}>
                 <button
                   className="py-2 px-4  rounded-l text-white dark:text-black bg-green-600 hover:text-black dark:hover:text-white border border-black font-semibold "
@@ -108,7 +108,7 @@ function Post() {
                   xmlns="http://www.w3.org/2000/svg"
                   x="0px"
                   y="0px"
-                  className="inline h-6 w-6 opacity-60 fill-gray-900 dark:fill-white"
+                  className="inline -translate-y-0.5 h-6 w-6 opacity-60 fill-gray-900 dark:fill-white"
                   viewBox="0 0 48 48"
                 >
                   <path d="M36.5,43c-0.309,0-0.616-0.095-0.876-0.283L24,34.348l-11.624,8.369c-0.458,0.329-1.06,0.375-1.561,0.118	C10.315,42.579,10,42.063,10,41.5v-30C10,7.916,12.916,5,16.5,5h15c3.584,0,6.5,2.916,6.5,6.5v30c0,0.563-0.315,1.079-0.816,1.335	C36.968,42.945,36.734,43,36.5,43z"></path>
@@ -119,7 +119,7 @@ function Post() {
                   xmlns="http://www.w3.org/2000/svg"
                   x="0px"
                   y="0px"
-                  className="inline h-6 opacity-60 fill-gray-900 dark:fill-white"
+                  className="inline h-6 opacity-70 fill-gray-900 dark:fill-white"
                   viewBox="0 0 48 48"
                 >
                   <path d="M 16.5 5 C 12.928062 5 10 7.9280619 10 11.5 L 10 41.5 A 1.50015 1.50015 0 0 0 12.376953 42.716797 L 24 34.347656 L 35.623047 42.716797 A 1.50015 1.50015 0 0 0 38 41.5 L 38 11.5 C 38 7.9280619 35.071938 5 31.5 5 L 16.5 5 z M 16.5 8 L 31.5 8 C 33.450062 8 35 9.5499381 35 11.5 L 35 38.572266 L 24.876953 31.283203 A 1.50015 1.50015 0 0 0 23.123047 31.283203 L 13 38.572266 L 13 11.5 C 13 9.5499381 14.549938 8 16.5 8 z"></path>
@@ -140,7 +140,7 @@ function Post() {
             //@ts-ignore
               src={getFilePreview(post.image)}
               alt={post.title}
-              className=" rounded-xl w-full md:w-auto md:mx-auto max-h-screen"
+              className="w-full md:w-auto md:mx-auto max-h-screen"
             />
           </div>
           <div className=" first-letter:capitalize first-letter:mr-2 first-letter:float-left first-letter:text-5xl first-letter:text-gray-500 first-letter:font-bold text-xl md:text-xl lg:text-2xl font-serif my-2">{parse(post.content)}</div>

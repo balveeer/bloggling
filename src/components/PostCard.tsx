@@ -4,9 +4,11 @@ import { Link } from "react-router-dom";
 import { updateSave } from "../store/postSlice";
 import { useAppDispatch, useAppSelector } from "../store/hooks";
 import { userData } from "../store/authSlice";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 const PostCard: React.FC<{ post: PostType, save: boolean }> = ({ post, save=true }) => {
   const [open, setOpen] = useState(false)
+  const [isAtTop, setIsAtTop] = useState(false);
+  const cardRef = useRef<HTMLDivElement>(null);
   const dispatch = useAppDispatch();
   const user = useAppSelector(userData);
   const handleSave = (e: any) => {
@@ -48,15 +50,26 @@ const PostCard: React.FC<{ post: PostType, save: boolean }> = ({ post, save=true
     e.stopPropagation();
     setOpen(false);
   }
+  useEffect(() => {
+    const handleScroll = () => {
+      if (cardRef.current) {
+        const rect = cardRef.current.getBoundingClientRect();
+        setIsAtTop(rect.top <= 200);
+      }
+    };
+  
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
   return (
-    <div className="w-full">
+    <div className="w-full" ref={cardRef} >
       <Link to={`/post/${post?.$id}`} className="mx-auto relative flex max-w-[20rem] flex-col rounded-xl bg-gray-50 hover:bg-gray-200 bg-clip-border dark:bg-gray-900/70 hover:dark:bg-gray-900 dark:text-white group duration-200 hover:shadow-xl shadow-violet-200 dark:shadow-gray-800 active:scale-95">
         <img
           //@ts-ignore
           src={ post ? getFilePreview(post?.image ? post.image : ""): ""}
           loading="lazy"
           alt={post.title}
-          className="relative m-4 h-60 group-hover:rounded-b-none group-hover:m-0 rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg object-cover duration-200 group-hover:mb-4 group-hover:h-[16rem]"
+          className={`relative sm:m-4 group-hover:rounded-b-none group-hover:m-0 rounded-xl hover:h-[16rem] bg-blue-gray-500 bg-clip-border text-white shadow-lg object-cover duration-200 group-hover:mb-4 group-hover:h-[16rem] ${isAtTop ? 'mb-0 rounded-b-none h-[16rem]' : 'm-4 h-60'}`}
         />
         <div className="w-auto h-6 duration-400 opacity-70 font-light text-start truncate mx-4">
           {post?.category.slice(0, 2).map((cat: string,i) => i==1? " • " + cat:cat)}

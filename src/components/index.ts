@@ -11,6 +11,7 @@ import Category from "./Category";
 import PostsContainer from "./PostsContainer";
 import Modal from "./Modal";
 import Load from "./Load"
+import { ReactSVG } from "react";
 export interface PostType{
     $collectionId?: string;
     $createdAt: string;
@@ -26,13 +27,15 @@ export interface PostType{
     image:string;
     userId:string;
     saves:string[];
-    views:number;
+    views?:number;
+    subject?:string
   }
   
 export interface NavItemsType {
   name: string;
   slug: string;
   active: boolean;
+  icon?:React.FC<React.SVGProps<SVGSVGElement>>
 }
   export interface UserType {
     $id: string;
