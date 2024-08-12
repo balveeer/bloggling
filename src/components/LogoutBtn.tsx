@@ -5,6 +5,7 @@ import { useAppDispatch, useAppSelector } from "../store/hooks";
 import { authLogout, userData } from "../store/authSlice";
 import { useState } from "react";
 import Load from "./Load";
+import { LogoutIcon } from "./icons";
 function LogoutBtn({className=""}) {
   const [load, setLoad] = useState(false)
   const user = useAppSelector(userData);
@@ -19,9 +20,9 @@ function LogoutBtn({className=""}) {
   };
   return (
     user && <button
-      className={`w-32 text-center inline-block hover:drop-shadow-lg px-6 py-2 duration-200 text-red-500 hover:text-white  hover:dark:bg-red-600 hover:bg-red-600  rounded-xl hover:rounded-s-xl ${load?" bg-red-600":"bg-white"} ${className}`}
+      className={`min-w-32 text-center inline-block hover:drop-shadow-lg px-6 py-2 duration-200 text-red-500 hover:text-white  hover:dark:bg-red-600 hover:bg-red-600  rounded-xl hover:rounded-s-xl ${load?" bg-red-600":"bg-white"} ${className}`}
       onClick={logoutHandler}
-    >{load?<Load/>:"Logout"}
+    >{load?<Load/>:"Logout"}<LogoutIcon className='w-6 h-6 inline dark:fill-white ml-2' />
       
     </button>
   );
