@@ -27,26 +27,26 @@ export default defineConfig({
         ],
         screenshots: [
           {
-            "src": "screenshotwide1200x630.jpg",
-             "sizes": "1200x630",
+            "src": "screenshotwide.jpg",
+             "sizes": "1655x1622",
              "type": "image/jpg",
              "form_factor": "wide",
-             "label": "drip, drippy, drippin'",
+             "label": "mind boggling blogs!",
              
            },
           {
-            "src": "screenshotnarrow1080x2344a.jpg",
-             "sizes": "1080x2344",
+            "src": "screenshotnarrow.jpg",
+             "sizes": "1346x1622",
              "type": "image/jpg",
              "form_factor": "narrow",
-             "label": "drip, drippy, drippin'"
+             "label": "mind boggling blogs!"
           },
           {
-            "src": "screenshotnarrow1080x2344b.jpg",
-             "sizes": "1080x2344",
+            "src": "screenshotmobile.jpg",
+             "sizes": "814x2882",
              "type": "image/jpg",
              "form_factor": "narrow",
-             "label": "drip, drippy, drippin'"
+             "label": "mind boggling blogs!"
           },
         ]
 

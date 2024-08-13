@@ -18,7 +18,7 @@ function Home() {
     sortedPosts = sortPostsByNewest(sortPosts && sortPosts)
   return (
     <div className="w-full">
-    <PostsContainer title="LATEST POSTS" posts={loadMoreBtn? sortedPosts.slice(0,6): sortedPosts}  />
+    <PostsContainer title="LATEST POSTS" posts={loadMoreBtn? sortedPosts.slice(0,4): sortedPosts}  />
     {loadMoreBtn && 
     <div className="w-full flex justify-center">
       <button className="my-2 mx-auto p-4 bg-white hover:bg-black hover:dark:bg-white dark:bg-black text-xl font-semibold text-black hover:text-white dark:hover:text-black dark:text-white rounded-lg ring-black dark:ring-white ring-2" onClick={()=>setLoadMoreBtn(false)}>Load More Posts</button>

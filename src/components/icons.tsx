@@ -250,7 +250,7 @@ export const SignupIcon = (props: SVGProps<SVGSVGElement>) => (
     viewBox="0 0 256 256"
     enableBackground="new 0 0 256 256"
     xmlSpace="preserve"
-    style={{transform: `scaleX(80%)`}}
+    // style={{transform: `scaleX(75%)`}}
     {...props}
   >
     <g>
