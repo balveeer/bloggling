@@ -18,7 +18,7 @@ const category = [
 function Category() {
   return (
     <div className="w-auto py-4">
-    <h2 className="text-Black dark:text-white m-6 opacity-80 text-center uppercase font-medium text-3xl sm:text-4xl lg:text-5xl 2xl:text-6xl lg:mt-10 xl:mt-16">
+    <h2 className="text-Black dark:text-white m-6 opacity-80 text-center uppercase font-medium text-3xl sm:text-4xl lg:text-5xl 2xl:text-6xl">
       CATEGORIES
     </h2>
       <div className=" grid gap-2 md:gap-4 grid-cols-1 md:grid-cols-3 lg:grid-cols-4" >

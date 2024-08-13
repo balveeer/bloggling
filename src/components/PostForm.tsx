@@ -1,12 +1,12 @@
 import { useState, useCallback, useEffect, useRef } from "react";
 import { useForm } from "react-hook-form";
-import { Input, RTE, Categories } from "./index.js";
+import { Input, RTE, Categories, Load } from "./index.js";
 import { useNavigate } from "react-router-dom";
 import { useAppSelector } from "../store/hooks.js";
 import { userData } from "../store/authSlice.js";
 import {createPost, updatePost, uploadFile,deleteFile,getFilePreview, getPosts } from "../appwrite/config.js";
 export default function PostForm({post}:any) {
-
+  const [load,setLoad] = useState(false);
   const [limit, setLimit] = useState(0);
   const [image,setImage] = useState("");
   const [photo, setPhoto] = useState(null);
@@ -160,8 +160,7 @@ export default function PostForm({post}:any) {
         <button
           type="submit"
           className="hidden md:block w-full rounded-lg bg-green-500 hover:bg-green-600 py-2 px-4 font-semibold text-white"
-        >
-          {post ? "Update Post" : "Create Post"}
+        >{load ? <Load/>:(post ? "Update Post" : "Create Post")}
         </button>
       </div>
         
