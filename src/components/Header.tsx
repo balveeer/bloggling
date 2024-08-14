@@ -1,4 +1,4 @@
-import { Logo, LogoutBtn, NavItemsType } from "./index.js";
+import { Logo, LogoutBtn, NavItemsType,InstallBtn } from "./index.js";
 import { HomeIcon, MySavesIcon, MyPostsIcon, AddPostIcon, LightIcon, DarkIcon, ProfileIcon, LoginIcon, SignupIcon} from "./icons.js";
 import { Link, useNavigate, NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -232,6 +232,7 @@ function Header() {
                 <LogoutBtn className="ms-auto" />
               </span>
             )}
+            <InstallBtn/>
           </ul>
         </nav>
       </div>

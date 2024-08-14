@@ -28,7 +28,7 @@ export default defineConfig({
         screenshots: [
           {
             "src": "screenshotwide.jpg",
-             "sizes": "1655x1622",
+             "sizes": "1655x1107",
              "type": "image/jpg",
              "form_factor": "wide",
              "label": "mind boggling blogs!",
@@ -49,7 +49,6 @@ export default defineConfig({
              "label": "mind boggling blogs!"
           },
         ]
-
       }
     })
   ]
