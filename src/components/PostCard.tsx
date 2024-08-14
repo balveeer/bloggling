@@ -67,9 +67,9 @@ const PostCard: React.FC<{ post: PostType, save: boolean }> = ({ post, save=true
         <img
           //@ts-ignore
           src={ post ? getFilePreview(post?.image ? post.image : ""): ""}
-          loading="lazy"
+          // loading="lazy"
           alt={post.title}
-          className={`relative sm:m-4 sm:h-60 group-hover:rounded-b-none group-hover:m-0 rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg object-cover duration-200 group-hover:mb-4 group-hover:h-[16rem] ${isAtTop ? 'm-0 mb-4 rounded-b-none h-[16rem]' : 'm-4 h-60'}`}
+          className={`relative sm:m-4 aspect-video group-hover:rounded-b-none group-hover:m-0 rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg object-cover duration-200 group-hover:mb-4 group-hover:h-[16rem] ${isAtTop ? 'm-0 mb-4 rounded-b-none h-[16rem]' : 'm-4 h-60'}`}
         />
         <div className="w-auto h-6 duration-400 opacity-70 font-light text-start truncate mx-4">
           {post?.category.slice(0, 2).map((cat: string,i) => i==1? " • " + cat:cat)}

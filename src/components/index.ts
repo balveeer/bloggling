@@ -11,7 +11,7 @@ import Category from "./Category";
 import PostsContainer from "./PostsContainer";
 import Modal from "./Modal";
 import Load from "./Load"
-import { ReactSVG } from "react";
+import InstallBtn from "./InstallBtn";
 export interface PostType{
     $collectionId?: string;
     $createdAt: string;
@@ -69,7 +69,8 @@ export {
     Categories,
     Category,
     PostsContainer,
-    Load
+    Load,
+    InstallBtn
 }
 export declare enum OAuthProvider {
   Amazon = "amazon",
