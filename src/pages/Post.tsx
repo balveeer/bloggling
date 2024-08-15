@@ -70,9 +70,9 @@ function Post() {
     navigate("/author/" + post.userId);
   };
   return post &&(
-    <div className="mt-4 dark:text-white max-w-5xl mx-auto">
+    <div className="mt-4 dark:text-white max-w-5xl p-2 mx-auto">
         <div className="flex w-full justify-start items-center">
-        <h1 className={`w-full p-4 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold inline pl-4 `}>
+        <h1 className={`w-full text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold inline pl-4 `}>
           {post.title}
         </h1>
         </div>

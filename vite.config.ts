@@ -32,7 +32,6 @@ export default defineConfig({
              "type": "image/jpg",
              "form_factor": "wide",
              "label": "mind boggling blogs!",
-             
            },
           {
             "src": "screenshotnarrow.jpg",

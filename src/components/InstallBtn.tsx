@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Load from './Load';
+import { InstallIcon } from './icons';
 
 const InstallBtn: React.FC = () => {
   const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
@@ -36,8 +37,8 @@ const InstallBtn: React.FC = () => {
 
   return (
     <button onClick={handleInstallClick} disabled={!deferredPrompt}
-    className={`w-32 text-center inline-block hover:drop-shadow-lg px-6 py-2 duration-200 text-green-500 hover:text-white  hover:dark:bg-green-600 hover:bg-green-600  rounded-xl hover:rounded-s-xl ${load?" bg-green-600":"bg-white"} `}
-  >{load?<Load/>:"Install Bloggling"}
+    className={`min-w-32 text-center inline-block hover:drop-shadow-lg px-6 py-2 duration-200 text-green-500 hover:text-white  hover:dark:bg-green-600 hover:bg-green-600  rounded-xl hover:rounded-s-xl ${load?" bg-green-600":"bg-white"} `}
+  >{load?<Load/>:"Install..."}{!load && <InstallIcon className='w-6 h-6 inline ml-2' />}
     
   </button>
   )
