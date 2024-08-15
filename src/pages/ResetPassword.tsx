@@ -52,7 +52,7 @@ function ResetPassword() {
       <h2 className="text-Black dark:text-white m-6 opacity-80 text-center uppercase font-medium text-3xl sm:text-4xl lg:text-5xl 2xl:text-6xl">
         Reset Password
       </h2>
-      {message && <p className="text-red-600 mt-8 text-center">{message}</p>}
+      {message && <p className="text-blue-500 mt-8 text-center">{message}</p>}
       {!secret ? (
         <form onSubmit={sendMail}>
           <Input
@@ -64,7 +64,7 @@ function ResetPassword() {
           />
           <button
             type="submit"
-            className="w-full rounded-lg px-4 py-2 mt-6 text-white bg-purple-500 hover:bg-purple-600 font-bold"
+            className="w-full rounded-lg px-4 py-2 mt-6 text-white bg-purple-500 hover:bg-white font-bold"
           >
             {load ? (
               <Load />
@@ -93,23 +93,7 @@ function ResetPassword() {
             type="submit"
             className="w-full rounded-lg px-4 py-2 mt-6 text-white bg-purple-500 hover:bg-purple-600 font-bold"
           >
-            {load ? (
-              <>
-                <span className="animate-[spin_1.5s_ease-in-out_infinite] overflow-hidden text-white inline-block">
-                  <svg
-                    className="animate-spin"
-                    width="20"
-                    stroke="white"
-                    fill="white"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path d="M12,23a9.63,9.63,0,0,1-8-9.5,9.51,9.51,0,0,1,6.79-9.1A1.66,1.66,0,0,0,12,2.81h0a1.67,1.67,0,0,0-1.94-1.64A11,11,0,0,0,12,23Z" />
-                  </svg>
-                </span>
-              </>
-            ) : (
+            {load ? (<Load /> ) : (
               <span>Set Password</span>
             )}
           </button>

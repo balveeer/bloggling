@@ -54,7 +54,7 @@ const PostCard: React.FC<{ post: PostType, save: boolean }> = ({ post, save=true
     const handleScroll = () => {
       if (cardRef.current) {
         const rect = cardRef.current.getBoundingClientRect();
-        setIsAtTop(rect.top <= 200);
+        setIsAtTop(rect.top <= 250);
       }
     };
   
@@ -69,7 +69,7 @@ const PostCard: React.FC<{ post: PostType, save: boolean }> = ({ post, save=true
           src={ post ? getFilePreview(post?.image ? post.image : ""): ""}
           // loading="lazy"
           alt={post.title}
-          className={`relative sm:m-4 aspect-video group-hover:rounded-b-none group-hover:m-0 rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg object-cover duration-200 group-hover:mb-4 group-hover:h-[16rem] ${isAtTop ? 'm-0 mb-4 rounded-b-none h-[16rem]' : 'm-4 h-60'}`}
+          className={`relative w-full sm:p-4 aspect-video sm:group-hover:p-0 rounded-b-none rounded-xl bg-blue-gray-500 bg-clip-border text-white group-hover:shadow-lg object-cover duration-200  ${isAtTop ? 'p-0 shadow-lg' : 'p-4'}`}
         />
         <div className="w-auto h-6 duration-400 opacity-70 font-light text-start truncate mx-4">
           {post?.category.slice(0, 2).map((cat: string,i) => i==1? " • " + cat:cat)}

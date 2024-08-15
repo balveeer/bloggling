@@ -232,7 +232,8 @@ function Header() {
                 <LogoutBtn className="ms-auto" />
               </span>
             )}
-            <InstallBtn/>
+              <span className="w-full ps-auto text-right border-transparent">
+            <InstallBtn/></span>
           </ul>
         </nav>
       </div>
