@@ -36,15 +36,16 @@ function ResetPassword() {
       <h2 className="text-Black dark:text-white m-6 opacity-80 text-center uppercase font-medium text-3xl sm:text-4xl lg:text-5xl 2xl:text-6xl">
       Password changed successfully
       </h2>
-      <p className="mt-2 w-full text-center text-black/60 dark:text-white text-lg sm:text-xl lg:text-2xl 2xl:text-3xl font-bold">
-          Go To
-          <Link
-            to="/login"
-            className="font-medium text-primary transition-all duration-200 hover:underline text-blue-400"
-          >
+      <div className="w-full h-24 items-center flex justify-center gap-2 ">
+          <Link to='/login'>
+          <button  className="h-12 px-4 bg-black text-white font-semibold text-center ring-white rounded-lg hover:bg-white hover:text-black hover:border-black border-2">
             Login
-          </Link>
-        </p>
+          </button></Link>
+          <Link to='/signup'>
+          <button  className="h-12 px-4 bg-black text-white font-semibold text-center ring-white rounded-lg hover:bg-white hover:text-black hover:border-black border-2">
+            Sign Up
+          </button></Link>
+        </div>
     </div>)
 
   return (

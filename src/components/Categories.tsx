@@ -64,7 +64,7 @@ function Categories({props,defaultValue=[],onCatChange,className}:any,ref:any ) 
         className={`w-full my-2 px-3 py-2 rounded-lg bg-white text-black dark:text-white outline-none focus:bg-gray-50 dark:bg-gray-700 focus:dark:bg-gray-600 dark:focus:ring-gray-400 duration-200 border border-gray-200 dark:border-gray-600 peer focus:ring-2 ring-gray-400 pr-12`}
       >
         
-        <option key="select" value=""></option>
+        <option key="select" disabled selected value="">Select categories</option>
         {options?.map((option,index) => (
           <option key={index} value={option}>
             {option}

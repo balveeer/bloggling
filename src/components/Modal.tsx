@@ -1,6 +1,6 @@
 import ReactDOM from "react-dom";
 import { Link } from "react-router-dom";
-function Modal({ open,type, onClose }: { open: boolean;type:"verification"|"authentication"; onClose: any }) {
+function Modal({ open,type, onClose }: { open: boolean;type:"delete"|"verification"|"authentication"; onClose: any }) {
   if (!open) return <> </>;
   return ReactDOM.createPortal(
     <div
