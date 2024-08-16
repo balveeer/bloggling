@@ -10,6 +10,7 @@ import { Load, Modal, PostType, UserType } from "../components/index";
 function Post() {
   const [load, setLoad] = useState(false);
   const [open, setOpen] = useState(false);
+  const [delModal, setDelModal] = useState(false)
   const { slug } = useParams();
   const navigate = useNavigate();
   const user:UserType = useAppSelector(userData);
@@ -145,8 +146,9 @@ function Post() {
           </div>
           <div className=" first-letter:capitalize first-letter:mr-2 first-letter:float-left first-letter:text-5xl first-letter:text-gray-500 first-letter:font-bold text-xl md:text-xl lg:text-2xl font-serif my-2 prose dark:prose-dark">{parse(post.content)}</div>
         </div>
-        <Modal open={open} type={user?"verification":"authentication"} onClose={handleClose}  />
+        <Modal open={open} type={delModal?"delete":(user?"verification":"authentication")} onClose={handleClose}  />
     </div>
+    
   )
 }
 

@@ -24,6 +24,7 @@ export default function PostForm({post}:any) {
   const navigate = useNavigate();
   const user = useAppSelector(userData)
   const submit = async (data:any) => {
+    setLoad(true);
     if (post) {
       if (photo) {
         deleteFile(post?.image);
@@ -48,6 +49,7 @@ export default function PostForm({post}:any) {
       }
       else{setError("add image")}
     }
+    setLoad(false);
   };
 
   const slugTransform = useCallback((value:string) => {
@@ -163,14 +165,13 @@ export default function PostForm({post}:any) {
         >{load ? <Load/>:(post ? "Update Post" : "Create Post")}
         </button>
       </div>
-        
       <button
           type="submit"
           className="md:hidden w-full rounded-lg bg-green-500 hover:bg-green-600 py-2 px-4 font-semibold text-white m-2"
         >
-          {post ? "Update Post" : "Create Post"}
-        </button>
-        </form>
+          {load ? <Load/>:(post ? "Update Post" : "Create Post")}
+      </button>
+    </form>
     
   );
 }

@@ -4,6 +4,8 @@ import { LogoutBtn, PostsContainer } from "../components";
 import { selectPosts } from "../store/postSlice";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import MyPosts from "./MyPosts";
+import MySaved from "./MySaved";
 function Profile() {
   const [selected, setSelected] = useState("all");
   const [selectedPosts, setSelectedPosts] = useState([]);
@@ -18,19 +20,13 @@ function Profile() {
             (post: any) =>
               post.saves.includes(user?.$id) || post.userId == user.$id
           )
-        );
-      if (selected == "created")
-        setSelectedPosts(posts.filter((post: any) => post.userId == user.$id));
-      if (selected == "saved")
-        setSelectedPosts(
-          posts.filter((post: any) => post.saves.includes(user?.$id))
-        );
-    }
+        )
+      }
   }, [selected]);
 
   if (!user)
     return (
-      <h2 className="text-5xl text-center p-2 text-gray-950 dark:text-white">
+      <h2 className="text-5xl text-center p-2 text-gray-950 dark:text-white/70">
         {" "}
         Login to check your posts{" "}
       </h2>
@@ -120,11 +116,13 @@ function Profile() {
           Saved
         </button>
       </div>
-      <PostsContainer
-        title={selected + " Posts"}
+      {selected=="created" && <MyPosts/>}
+      {selected=="saved" && <MySaved/>}
+      {selected == "all" && <PostsContainer
+        title={(posts.length>1 && selectedPosts.length == 0)?"You haven't created or saved any post" :"ALL POSTS"} 
         posts={selectedPosts}
         save={false}
-      />
+      />}
     </div>
   );
 }
