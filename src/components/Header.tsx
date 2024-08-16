@@ -49,11 +49,11 @@ function Header() {
       icon:MySavesIcon,
     },
     {
-      name: "Add Post",
+      name: "Create Post",
       slug: "/add-post",
       active: authStatus,
       icon:AddPostIcon,
-    },
+    }
   ];
   if (windowDarkTheme && theme === null) {
     setTheme(false);
@@ -139,7 +139,7 @@ function Header() {
             </li>
             <li>
               <button
-                onClick={() => navigate("/profile")}
+                onClick={() => navigate(authStatus?"/profile":"/login")}
                 className="group relative rounded-full p-2 hover:bg-white/10"
               >
                 <ProfileIcon className="dark:text-white w-8 h-8 text-black" />
@@ -217,7 +217,7 @@ function Header() {
               {theme? <LightIcon className="inline ml-2 w-8 h-8 text-black hover:text-black" /> :<DarkIcon className="inline ml-2 w-8 h-8 dark:text-gray-100 dark:group-hover:text-gray-300" />}
             </button>
             <NavLink
-              to="/profile"
+              to={authStatus?"/profile":"/login"}
               onClick={() => setOpen(!open)}
               className={({ isActive }) =>
                 `w-full p-2 text-end duration-300 ring-0 ring-black border-0 border-black dark:ring-gray-300 font-semibold text-black hover:bg-gray-400 hover:dark:bg-gray-700/80 ${

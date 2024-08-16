@@ -61,7 +61,7 @@ function Profile() {
                   />
         </svg>
         <div className="flex-col justify-center items-center text-gray-800 dark:text-white  rounded-lg w-full">
-          <h3 className=" text-start font-light md:text-lg lg:text-lg px-2 p-1 ">
+          <h3 className=" text-start text-lg font-light md:text-lg lg:text-lg px-2 p-1 ">
               {user?.name}
           </h3>
           <h3 className="block md:inline-block text-start font-light md:text-lg lg:text-xl px-2 p-1">
@@ -72,13 +72,13 @@ function Profile() {
         
         <div className="flex items-center justify-around w-full pt-2">
           {user?.emailVerification ? (
-            <div className="inline-block mx-2 rounded-full px-4 p-1 text-green-700  bg-green-300 ">
+            <div className="inline-block text-sm mx-2 rounded-full px-4 p-1 text-green-700  bg-green-300 ">
               verified
             </div>
           ) : (
             <div
               onClick={() => navigate("/verify-email")}
-              className="inline mx-2 rounded-full px-4 p-1 text-gray-700 bg-gray-400 hover:bg-gray-200 hover:cursor-help "
+              className="inline mx-2 rounded-full px-4 p-1 text-gray-700 bg-gray-400 hover:bg-gray-200 hover:cursor-help text-sm"
             >
               unverified
             </div>
@@ -86,7 +86,7 @@ function Profile() {
           <LogoutBtn />
         </div>
       </div>
-      <div className="w-full flex justify-start gap-4 pt-4 font-semibold">
+      <div className="w-full flex justify-start gap-4 pt-4 font-semibold text-base">
         <button
           onClick={() => {
             setSelected("all");

@@ -5,7 +5,7 @@ import parse from "html-react-parser";
 import { useAppDispatch, useAppSelector } from "../store/hooks";
 import { userData } from "../store/authSlice";
 import {selectPosts, updateSave} from "../store/postSlice";
-import { Load, Modal, UserType } from "../components/index";
+import { Load, Modal, PostType, UserType } from "../components/index";
 
 function Post() {
   const [load, setLoad] = useState(false);
@@ -15,7 +15,7 @@ function Post() {
   const user:UserType = useAppSelector(userData);
   const posts = useAppSelector(selectPosts)
   const dispatch = useAppDispatch();
-  const post:any = posts.find((post)=>post.$id == slug)
+  const post:any = posts.find((post:PostType)=>post.$id == slug)
     const isAuthor = (post && post.userId == user?.$id)?true:false
     const date = new Date(post?.$createdAt).toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" });
   const delPost = () => {
@@ -80,14 +80,14 @@ function Post() {
             <div className="fixed z-50 top-24 right-4 inline-flex flex-nowrap justify-center items-center">
               <Link to={`/edit-post/${post.$id}`}>
                 <button
-                  className="py-2 px-4  rounded-l text-white dark:text-black bg-green-600 hover:text-black dark:hover:text-white border border-black font-semibold "
+                  className="py-2 px-4 opacity-60 hover:opacity-100 rounded-l text-white dark:text-black bg-green-600 hover:text-black dark:hover:text-white border border-black font-semibold "
                 >
                   Edit
                 </button>
               </Link>
               <button
                 onClick={delPost}
-                className="py-2 px-4  rounded-r  text-white dark:text-black bg-red-600 hover:text-black dark:hover:text-white border border-black border-l-0 font-semibold"
+                className="py-2 px-4 opacity-60 hover:opacity-100 rounded-r  text-white dark:text-black bg-red-600 hover:text-black dark:hover:text-white border border-black border-l-0 font-semibold"
               >
                 {load ? (
                   <Load />
@@ -140,10 +140,10 @@ function Post() {
             //@ts-ignore
               src={getFilePreview(post.image)}
               alt={post.title}
-              className="w-full md:w-auto md:mx-auto max-h-screen"
+              className="w-full md:w-auto md:mx-auto max-h-screen translate-105"
             />
           </div>
-          <div className=" first-letter:capitalize first-letter:mr-2 first-letter:float-left first-letter:text-5xl first-letter:text-gray-500 first-letter:font-bold text-xl md:text-xl lg:text-2xl font-serif my-2">{parse(post.content)}</div>
+          <div className=" first-letter:capitalize first-letter:mr-2 first-letter:float-left first-letter:text-5xl first-letter:text-gray-500 first-letter:font-bold text-xl md:text-xl lg:text-2xl font-serif my-2 prose dark:prose-dark">{parse(post.content)}</div>
         </div>
         <Modal open={open} type={user?"verification":"authentication"} onClose={handleClose}  />
     </div>

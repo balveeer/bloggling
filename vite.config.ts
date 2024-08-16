@@ -35,14 +35,14 @@ export default defineConfig({
            },
           {
             "src": "screenshotnarrow.jpg",
-             "sizes": "1346x1622",
+             "sizes": "1345x1622",
              "type": "image/jpg",
              "form_factor": "narrow",
              "label": "mind boggling blogs!"
           },
           {
             "src": "screenshotmobile.jpg",
-             "sizes": "814x2882",
+             "sizes": "814x1628",
              "type": "image/jpg",
              "form_factor": "narrow",
              "label": "mind boggling blogs!"
