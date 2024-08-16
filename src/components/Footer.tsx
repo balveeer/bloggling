@@ -7,7 +7,7 @@ function Footer() {
       <span className="flex flex-col sm:flex-row justify-around content-between">
         <div className="z-10 px-4">
           <div className="">
-            <div className="w-full flex justify-center sm:justify-start items-center opacity-50 hover:opacity-100 duration-200">
+            <div className="w-full flex justify-center sm:justify-start items-center">
               <Logo />
             </div>
           </div>
@@ -16,7 +16,7 @@ function Footer() {
           <div className="flex mt-4 justify-center gap-2">
             <a
               href="#"
-              className=" grayscale hover:grayscale-0 p-2 rounded hover:shadow-lg  text-[#5865f2]"
+              className="p-2 rounded hover:shadow-lg  text-[#5865f2]"
             >
               <svg
                 className="w-6 h-6"
@@ -31,7 +31,7 @@ function Footer() {
             </a>
             <a
               href="#"
-              className=" p-2 rounded hover:shadow-lg grayscale hover:grayscale-0 text-[#1DA1F2]"
+              className=" p-2 rounded hover:shadow-lg text-[#1DA1F2]"
             >
               <svg
                 className="w-6 h-6"
@@ -54,7 +54,7 @@ function Footer() {
               className="p-2 rounded hover:shadow-lg group"
             >
               <svg
-                className="w-6 h-6 fill-black/60 group-hover:fill-black dark:fill-white/40 dark:group-hover:fill-white"
+                className="w-6 h-6 fill-black dark:fill-white"
                 enableBackground="new -1163 1657.697 56.693 56.693"
                 height="56.693px"
                 id="Layer_1"
@@ -82,7 +82,7 @@ function Footer() {
             </a>
             <a
               href="https://www.linkedin.com/in/btwbalveer"
-              className="text-gray-800 p-2 rounded hover:shadow-lg fill-[#0077B5] hover:grayscale-0 grayscale"
+              className="text-gray-800 p-2 rounded hover:shadow-lg fill-[#0078d4] "
             >
               <svg
                 className="w-6 h-6"

@@ -63,13 +63,12 @@ const PostCard: React.FC<{ post: PostType, save: boolean }> = ({ post, save=true
   }, []);
   return (
     <div className="w-full" ref={cardRef} >
-      <Link to={`/post/${post?.$id}`} className="mx-auto relative flex max-w-[20rem] flex-col rounded-xl bg-gray-50 hover:bg-gray-200 bg-clip-border dark:bg-gray-900/70 hover:dark:bg-gray-900 dark:text-white group duration-200 hover:shadow-xl shadow-violet-200 dark:shadow-gray-800 active:scale-95">
+      <Link to={`/post/${post?.$id}`} className="mx-auto relative flex max-w-[20rem] flex-col rounded-xl bg-gray-50 hover:bg-gray-200 dark:bg-gray-900/70 hover:dark:bg-gray-900 dark:text-white group duration-200 hover:shadow-xl shadow-violet-200 dark:shadow-gray-800 active:scale-95" >
         <img
           //@ts-ignore
           src={ post ? getFilePreview(post?.image ? post.image : ""): ""}
-          // loading="lazy"
           alt={post.title}
-          className={`relative w-full sm:p-4 aspect-video sm:group-hover:p-0 rounded-b-none rounded-xl bg-blue-gray-500 bg-clip-border text-white group-hover:shadow-lg object-cover duration-200  ${isAtTop ? 'p-0 shadow-lg' : 'p-4'}`}
+          className={`relative sm:h-36 w-auto rounded-xl sm:m-4 aspect-video sm:group-hover:mb-4 group-hover:h-40 group-hover:m-0 rounded-b-none bg-blue-gray-500 text-white group-hover:shadow-lg object-cover duration-200 overflow-hidden ${isAtTop ? 'm-0 mb-4 shadow-lg h-40' : 'm-4 h-35'}`}
         />
         <div className="w-auto h-6 duration-400 opacity-70 font-light text-start truncate mx-4">
           {post?.category.slice(0, 2).map((cat: string,i) => i==1? " • " + cat:cat)}
