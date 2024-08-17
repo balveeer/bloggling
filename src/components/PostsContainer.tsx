@@ -1,18 +1,11 @@
 import PostCard from './PostCard';
 import { PostType } from '.';
 import CardLoader from './CardLoader';
-import { useEffect, useState } from 'react';
 import { selectPosts } from "../store/postSlice.js";
 import { useAppSelector } from '../store/hooks.js';
 
 function PostsContainer({ title, posts, save = true }: {title: string; posts: PostType[]; save?: boolean }): JSX.Element{
-  const [loading, setLoading] = useState(true);
   const allPosts = useAppSelector(selectPosts);
-  useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 5000);
-  }, []);
 
   return (
     <div className="w-auto py-2">
@@ -20,7 +13,7 @@ function PostsContainer({ title, posts, save = true }: {title: string; posts: Po
         {title}
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-        { loading && allPosts.length<1  ?
+        { allPosts.length<1  ?
         [...new Array(6)].map((_,index)=><CardLoader key={index} />) 
         :
         posts.map((post: PostType) => (
