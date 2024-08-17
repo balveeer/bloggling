@@ -6,7 +6,7 @@
     "scope": "/",
     "related_applications": [{
     "platform": "webapp",
-    "url": "https://example.com/manifest.json"
+    "url": "https://bloggling.netlify.app/manifest.json"
   }],
     "icons": [
         {
