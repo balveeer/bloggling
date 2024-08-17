@@ -3,6 +3,11 @@
     "short_name": "Bloggling",
     "description": "Mind Boggling Blogs...",
     "start_url": "/",
+    "scope": "/",
+    "related_applications": [{
+    "platform": "webapp",
+    "url": "https://example.com/manifest.json"
+  }],
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
