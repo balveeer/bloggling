@@ -179,7 +179,6 @@ function Header() {
           </div>
         </nav>
       </header>
-      {/* <div className={`w-full ${isScrolled ? "h-20" : "h-24"}`}></div> */}
       <div
         onClick={() => setOpen(!open)}
         className={`w-full md:hidden fixed z-50 right-0 h-screen overflow-x-hidden transition-all duration-300 ease-in   ${

@@ -7,6 +7,7 @@ interface RelatedApplication {
   url: string;
 }
 
+
 const InstallBtn: React.FC = () => {
   const [load, setLoad] = useState(false);
   const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
@@ -14,27 +15,27 @@ const InstallBtn: React.FC = () => {
   const [isStandalone, setIsStandalone] = useState<boolean>(false);
 
   useEffect(() => {
+    setIsStandalone(window.matchMedia("(display-mode: standalone)").matches || (window.navigator as any).standalone === true);
+    
     const checkInstallation = async () => {
       if ("getInstalledRelatedApps" in navigator) {
-        console.log("getInstalledRelatedApps is true")
         try {
           const relatedApps = await (
             navigator as any
           ).getInstalledRelatedApps();
+
           const installed = relatedApps.some(
             (app: RelatedApplication) =>
               app.platform === "webapp" &&
               app.url === "https://bloggling.netlify.app/manifest.json"
           );
+        console.log("getInstalledRelatedApps checking isInstalled",installed)
+        console.log("getInstalledRelatedApps checking relatedApps",relatedApps)
+
           setIsInstalled(installed);
         } catch (error) {
           console.error("Error checking installation:", error);
         }
-      } else {
-        setIsStandalone(
-          window.matchMedia("(display-mode: standalone)").matches ||
-            (window.navigator as any).standalone === true
-        );
       }
     };
 
@@ -95,8 +96,8 @@ const InstallBtn: React.FC = () => {
   return (
     <button
       onClick={handleInstallClick}
-      className={`min-w-32 text-center inline-block hover:drop-shadow-lg px-6 py-2 duration-200 text-green-500 hover:text-white  hover:dark:bg-green-600 hover:bg-green-600  rounded-xl hover:rounded-s-xl ${
-        load ? " bg-green-600" : "bg-white"} ${isStandalone ? " hidden" : ""} `}
+      className={`min-w-32 text-center  hover:drop-shadow-lg px-6 py-2 duration-200 text-green-500 hover:text-white  hover:dark:bg-green-600 hover:bg-green-600  rounded-xl hover:rounded-s-xl ${
+        load ? " bg-green-600" : "bg-white"} ${isStandalone ? " hidden" : "inline-block"} `}
     >
       {load ? <Load /> : isInstalled ? "Open" : "Install"}
       {!load && isInstalled ? (
