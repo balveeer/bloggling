@@ -106,7 +106,7 @@ function Header() {
             <Logo width="header" />
             </Link>
           </div>
-          <ul className="hidden md:flex justify-end items-center gap-2 w-auto ml-auto">
+          {/* <ul className="hidden md:flex justify-end items-center gap-2 w-auto ml-auto">
             {navItems.map((item) =>
               item.active ? (
                 <li key={item.name}>
@@ -145,7 +145,63 @@ function Header() {
                 <ProfileIcon className="dark:text-white w-8 h-8 text-black" />
               </button>
             </li>
-          </ul>
+          </ul> */}
+          <ul className="hidden md:flex justify-end items-center gap-2 w-auto ml-auto">
+      {navItems.map((item) =>
+        item.active ? (
+          <li key={item.name} className="group relative">
+            <NavLink
+              to={item.slug}
+              className={({ isActive }) =>
+                `mx-4 py-1 relative z-10 ${
+                  isActive
+                    ? "text-black dark:text-white border-black dark:border-white font-semibold border-b-[3px]"
+                    : "text-black dark:text-white hover:opacity-70"
+                }`
+              }
+            >
+              {item.name}
+              
+              {/* Underline Effect */}
+              <span 
+                className="absolute left-0 -bottom-[2px] w-full h-[2px] bg-black dark:bg-white rounded-e-full
+                  transform scale-x-0 group-hover:scale-x-100 
+                  origin-left transition-transform duration-300 ease-out"
+              />
+              
+              {/* Active State Underline
+              <span 
+                className="absolute left-0 bottom-0 w-full h-[2px]  
+                  transform scale-x-1 
+                  origin-left"
+              /> */}
+            </NavLink>
+          </li>
+        ) : null
+      )}
+      
+      <li>
+        <button
+          className="relative group rounded-full hover:bg-white/10 p-2"
+          onClick={() => setTheme(!theme)}
+        >
+          {theme ? (
+            <LightIcon className="w-8 h-8 text-black hover:text-black" />
+          ) : (
+            <DarkIcon className="w-8 h-8 dark:text-gray-100 dark:group-hover:text-gray-300" />
+          )}
+        </button>
+      </li>
+      
+      <li>
+        <button
+          onClick={() => navigate(authStatus ? "/profile" : "/login")}
+          className="group relative rounded-full p-2 hover:bg-white/10"
+        >
+          <ProfileIcon className="dark:text-white w-8 h-8 text-black" />
+        </button>
+      </li>
+    </ul>
           <div className="flex md:hidden justify-end items-center ">
             <button
               className={`text-gray-500 w-10 h-10 relative focus:outline-none hover:bg-white  hover:dark:bg-gray-800 rounded-lg ${
