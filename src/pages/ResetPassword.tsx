@@ -65,7 +65,7 @@ function ResetPassword() {
           />
           <button
             type="submit"
-            className="w-full rounded-lg px-4 py-2 mt-6 text-white bg-purple-500 hover:bg-white font-bold"
+            className="w-full rounded-lg px-4 py-2 mt-6 text-white bg-purple-500 hover:bg-purple-600 font-bold"
           >
             {load ? (
               <Load />
@@ -85,8 +85,8 @@ function ResetPassword() {
         />
         <Input
           autoFocus
-          label="Password "
-          placeholder="Enter new password"
+          label="Confirm Password "
+          placeholder="Enter password again"
           type="password"
           onChange={(e: any) => setConfirmPass(e.target.value)}
         />

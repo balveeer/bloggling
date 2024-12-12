@@ -9,14 +9,14 @@ function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isHidden, setIsHidden] = useState(false);
   const [open, setOpen] = useState(false);
-
+  const [isInstallVisible, setIsInstallVisible] = useState(true);
   const headerRef = useRef<HTMLElement>(null);
   const authStatus = useSelector(
     (state: { auth: { status: boolean } }) => state.auth.status
   );
   const navigate = useNavigate();
   const html: any = document.querySelector("html");
-
+  const consol = (i:any)=>{console.log("isinstalvisible in parent",i)}
   const navItems: NavItemsType[] = [
     {
       name: "Home",
@@ -63,7 +63,6 @@ function Header() {
   }
   useEffect(() => {
     let prevScrollY = window.scrollY;
-
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       const headerHeight = headerRef.current?.offsetHeight || 0;
@@ -87,6 +86,8 @@ function Header() {
     theme ? html.classList.add("light") : html.classList.add("dark");
   }, [theme]);
 
+
+
   open
     ? html?.classList.add("overflow-hidden")
     : html?.classList.remove("overflow-hidden");
@@ -105,47 +106,7 @@ function Header() {
             <Link to="/" onClick={() => setOpen(false)}>
             <Logo width="header" />
             </Link>
-          </div>
-          {/* <ul className="hidden md:flex justify-end items-center gap-2 w-auto ml-auto">
-            {navItems.map((item) =>
-              item.active ? (
-                <li key={item.name}>
-                  <NavLink
-                    to={item.slug}
-                    className={({ isActive }) =>
-                      `mx-4 py-2 ${
-                        isActive
-                          ? "border-b-2 cursor-default text-black"
-                          : "text-black hover:opacity-70"
-                      } dark:text-white border-black dark:border-white dark:ring-gray-300 font-medium `
-                    }
-                  >
-                    {item.name}
-                  </NavLink>
-                </li>
-              ) : null
-            )}
-            <li>
-              <button
-                className="relative group rounded-full hover:bg-white/10 p-2"
-                onClick={() => setTheme(!theme)}
-              >
-                {theme ? (
-                  <LightIcon  className="w-8 h-8 text-black hover:text-black" />
-                ) : (
-                  <DarkIcon className="w-8 h-8 dark:text-gray-100 dark:group-hover:text-gray-300" />
-                )}
-              </button>
-            </li>
-            <li>
-              <button
-                onClick={() => navigate(authStatus?"/profile":"/login")}
-                className="group relative rounded-full p-2 hover:bg-white/10"
-              >
-                <ProfileIcon className="dark:text-white w-8 h-8 text-black" />
-              </button>
-            </li>
-          </ul> */}
+          </div>          
           <ul className="hidden md:flex justify-end items-center gap-2 w-auto ml-auto">
       {navItems.map((item) =>
         item.active ? (
@@ -156,7 +117,7 @@ function Header() {
                 `mx-4 py-1 relative z-10 ${
                   isActive
                     ? "text-black dark:text-white border-black dark:border-white font-semibold border-b-[3px]"
-                    : "text-black dark:text-white hover:opacity-70"
+                    : "text-black dark:text-white"
                 }`
               }
             >
@@ -279,16 +240,16 @@ function Header() {
                   isActive ? "bg-gray-400 dark:bg-gray-700/80" : "opacity-70"
                 }`
               }
-            >
-              Profile <ProfileIcon className="dark:text-white ml-2 w-8 h-8 text-black inline" />
+            > Profile <ProfileIcon className="dark:text-white ml-2 w-8 h-8 text-black inline" />
             </NavLink>
             {authStatus && (
               <span className="w-full ps-auto text-right border-transparent">
                 <LogoutBtn className="ms-auto" />
               </span>
             )}
-              <span className="w-full ps-auto text-right border-transparent">
-            <InstallBtn/></span>
+            <span className={` w-full  text-right ${ !isInstallVisible ? "!ms-0 !p-0 !border-0 !bg-transparent":"ps-auto" }`} >
+              <InstallBtn setInstallVisible={(value:boolean)=> setIsInstallVisible(value)} />
+            </span>
           </ul>
         </nav>
       </div>
