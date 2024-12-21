@@ -143,7 +143,7 @@ function getFilePreview(fileId: string) {
   0,
   ImageGravity.Center,
   100,
-)+ "&output=webp";}
+)}
 
 export {
   createPost,
