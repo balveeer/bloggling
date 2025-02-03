@@ -66,13 +66,10 @@ async function googleLogin() {
 async function getCurrentUser() {
   if (account) {
     try {
-      // Check if user is logged in (replace with your logic to check session ID or JWT)
       const user: any = await account.get();
       if (user) {
         store.dispatch(setUser(user));
         return true;
-      } else {
-        return null; // Or redirect to login or provide guest information
       }
     } catch (error) {
       return null
@@ -84,7 +81,7 @@ async function logout() {
   try {
     await account.deleteSessions();
   } catch (error) {
-    // console.log("Appwrite service :: logout :: error", error);
+    console.log("Appwrite service :: logout :: error", error);
   }
 }
 
@@ -95,8 +92,8 @@ async function emailVerification() {
     );
     return verification;
   } catch (error) {
+    console.log("Appwrite service :: createEmailVerification :: error", error);
     throw error
-    // console.log("Appwrite service :: createEmailVerification :: error", error);
   }
 }
 
@@ -105,8 +102,8 @@ async function updateEmailverification(userId: string, secret: string) {
     const verification = await account.updateVerification(userId, secret);
     return verification;
   } catch (error) {
+    console.log("Appwrite service :: updateEmailVerification :: error", error);
     return false;
-    // console.log("Appwrite service :: updateEmailVerification :: error", error);
   }
 }
 

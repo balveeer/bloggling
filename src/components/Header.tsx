@@ -16,7 +16,6 @@ function Header() {
   );
   const navigate = useNavigate();
   const html: any = document.querySelector("html");
-  const consol = (i:any)=>{console.log("isinstalvisible in parent",i)}
   const navItems: NavItemsType[] = [
     {
       name: "Home",
@@ -247,9 +246,9 @@ function Header() {
                 <LogoutBtn className="ms-auto" />
               </span>
             )}
-            <span className={` w-full  text-right ${ !isInstallVisible ? "!ms-0 !p-0 !border-0 !bg-transparent":"ps-auto" }`} >
-              <InstallBtn setInstallVisible={(value:boolean)=> setIsInstallVisible(value)} />
-            </span>
+            {/* <span className={` w-full  text-right ${ !isInstallVisible ? "!ms-0 !p-0 !border-0 !bg-transparent":"ps-auto" }`} > */}
+              {/* <InstallBtn setInstallVisible={(value:boolean)=> setIsInstallVisible(value)} /> */}
+            {/* </span> */}
           </ul>
         </nav>
       </div>
