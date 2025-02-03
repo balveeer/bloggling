@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 function NotFound() {
   const navigate = useNavigate();
+
   return (
     <div className="flex bg-gradient-to-r from-transparent via-purple-300 dark:via-gray-800 to-transparent flex-col justify-center items-center max-h-screen p-6 w-full min-h-screen">
       <svg
@@ -302,7 +303,8 @@ function NotFound() {
         </g>
       </svg>
       <p className="text-3xl font-semibold text-blue-900 dark:text-blue-200 text-center -translate-y-20" >
-        The requested page could not be found.
+        {navigator.onLine?("The requested page could not be found."):("You seems to be offline.")}
+        
       </p>
       <div className="flex justify-center items-start h-1/2 -translate-y-20">
         <button

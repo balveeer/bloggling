@@ -41,6 +41,28 @@ async function createPost(
       }
     );
   } catch (error) {
+    if(error=="Document with the requested ID already exists. Try again with a different ID or use ID.unique() to generate a unique ID."){
+      try {
+        const newSlug = slug.slice(0, slug.length-1)+Number(slug[slug.length-1])+1;
+        return await databases.createDocument(
+          conf.appwriteDatabaseId,
+          conf.appwriteCollectionId,
+            newSlug,
+          {
+            title,
+            content,
+            category,
+            image,
+            status,
+            userId,
+            author,
+            saves,
+          });
+        
+      }  catch (error) {
+        console.log("appwrite service error: createPost:: ", error);
+      }
+    }
     console.log("appwrite service error: createPost:: ", error);
   }
 }
@@ -104,8 +126,9 @@ async function getPosts(queries: undefined | string[] = undefined) {
     );
     store.dispatch(setPosts(response.documents));
   } catch (error) {
-    // console.log("Appwrite service :: getPosts :: error", error);
-    return false;
+    if(error=="AppwriteException: Network request failed"){
+    }
+    console.log("Appwrite service :: getPosts :: error", error);
   }
 }
 

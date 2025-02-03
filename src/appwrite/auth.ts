@@ -70,6 +70,8 @@ async function getCurrentUser() {
       if (user) {
         store.dispatch(setUser(user));
         return true;
+      } else {
+        return null; 
       }
     } catch (error) {
       return null
