@@ -3,7 +3,7 @@ import { Logo } from "./index";
 
 function Footer() {
   return (
-    <section className="w-full overflow-hidden z-0 py-4 bg-gray-50 dark:bg-gray-900/70  border-t-2 border-t-gray-500/50">
+    <section className="w-full overflow-hidden z-0 py-4 bg-gray-50 dark:bg-[#111111]/70  border-t-2 border-t-gray-500/50">
       <span className="flex flex-col sm:flex-row justify-around content-between">
         <div className="z-10 px-4">
           <div className="">
@@ -16,7 +16,7 @@ function Footer() {
           <div className="flex mt-4 justify-center gap-2">
             <a
               href="#"
-              className="p-2 rounded hover:shadow-lg  text-[#5865f2]"
+              className="p-2 rounded hover:shadow-lg text-[#5865f2]"
             >
               <svg
                 className="w-6 h-6"
@@ -100,7 +100,7 @@ function Footer() {
       </span>
       <div>
         <p className="text-sm text-gray-600 text-center">
-          &copy; Copyright 2024. All Rights Reserved.
+          &copy; Copyright 2025. All Rights Reserved.
         </p>
       </div>
     </section>

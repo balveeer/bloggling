@@ -98,7 +98,7 @@ function Header() {
       style={headerStyle}
         className={`sticky top-0 z-50 ${
           isScrolled ? "h-20" : "h-24"
-        } transition-all duration-300 w-full px-4 shadow-md backdrop-blur-[.625rem] bg-gray-50/50 dark:bg-gray-800/50`}
+        } transition-all duration-300 w-full px-4 shadow-md backdrop-blur-[.625rem] bg-gray-50/50 dark:bg-[#222222]/50`}
       >
         <nav className="w-full h-full flex justify-between content-between">
           <div className="min-w-1/5 flex justify-start items-center duration-300">
@@ -164,15 +164,15 @@ function Header() {
     </ul>
           <div className="flex md:hidden justify-end items-center ">
             <button
-              className={`text-gray-500 w-10 h-10 relative focus:outline-none hover:bg-white  hover:dark:bg-gray-800 rounded-lg ${
-                open ? "bg-white dark:bg-gray-800" : ""
+              className={`text-gray-500 w-10 h-10 relative focus:outline-none hover:bg-white  hover:dark:bg-[#111111] rounded-lg ${
+                open ? "bg-white dark:bg-[#111111]" : ""
               }`}
               onClick={() => setOpen(!open)}
             >
               <div className="block w-5 absolute left-1/2 top-1/2 transform  -translate-x-1/2 -translate-y-1/2 *:delay-100 duration-1000">
                 <span
                   aria-hidden="true"
-                  className={`block absolute h-0.5 w-5 bg-gray-800 dark:bg-white transform transition duration-1000 ease-in-out rounded-full ${
+                  className={`block absolute h-0.5 w-5 bg-[#111111] dark:bg-white transform transition duration-1000 ease-in-out rounded-full ${
                     open ? "-rotate-45" : "-translate-y-1.5"
                   }`}
                 >
@@ -180,13 +180,13 @@ function Header() {
                 </span>
                 <span
                   aria-hidden="true"
-                  className={`block absolute h-0.5 w-5 bg-gray-800 dark:bg-white transform transition duration-500 ease-in-out rounded-full ${
+                  className={`block absolute h-0.5 w-5 bg-[#111111] dark:bg-white transform transition duration-500 ease-in-out rounded-full ${
                     open ? "opacity-0" : ""
                   }`}
                 ></span>
                 <span
                   aria-hidden="true"
-                  className={`block absolute h-0.5 w-5 bg-gray-800 dark:bg-white transform  transition duration-1000 delay-200 ease-in-out rounded-full ${
+                  className={`block absolute h-0.5 w-5 bg-[#111111] dark:bg-white transform  transition duration-1000 delay-200 ease-in-out rounded-full ${
                     open ? "rotate-45 " : "translate-y-1.5"
                   }`}
                 ></span>
@@ -201,8 +201,8 @@ function Header() {
           isScrolled ? "top-20" : "top-24"
         } ${open ? "translate-x-0" : "translate-x-1/2 scale-x-0 "}`}
       >
-        <nav className={`w-2/3 sm:w-1/2 h-full pr-4 z-60 bg-gray-50/50 dark:bg-gray-800/50 text-xl font-semibold shadow-md backdrop-blur-[.625rem] ml-auto`} onClick={(e)=>{e.preventDefault(),e.stopPropagation()}}>
-          <ul className="flex flex-col justify-start items-start dark:*:text-white *:ms-2 *:py-4 mr-auto w-full *:truncate *:border-b-2 *:border-indigo-400 *:dark:border-gray-500/50 *:box-border hover:*:bg-indigo-200 hover:*:dark:bg-gray-700/80">
+        <nav className={`w-2/3 sm:w-1/2 h-full pr-4 z-60 bg-gray-50/50 dark:bg-[#111111]/50 text-xl font-semibold shadow-md backdrop-blur-[.625rem] ml-auto`} onClick={(e)=>{e.preventDefault(),e.stopPropagation()}}>
+          <ul className="flex flex-col justify-start items-start dark:*:text-white *:ms-2 *:py-4 mr-auto w-full *:truncate *:border-b-2 *:border-indigo-400 *:dark:border-gray-500/50 *:box-border hover:*:bg-indigo-200 hover:*:dark:bg-[#111111]/80">
             {navItems.map((item) =>
               item.active ? (
                 <NavLink
@@ -210,9 +210,9 @@ function Header() {
                   to={item.slug}
                   key={item.name}
                   className={({ isActive }) =>
-                    `w-full p-2 text-end duration-300 ring-0 ring-black border-0 border-black dark:ring-gray-300 font-semibold text-black hover:bg-gray-400 hover:dark:bg-gray-700/80 ${
+                    `w-full p-2 text-end duration-300 ring-0 ring-black border-0 border-black dark:ring-gray-300 font-semibold text-black hover:bg-[#222222] hover:dark:bg-[#222222]/80 ${
                       isActive
-                        ? "bg-indigo-200 dark:bg-gray-700/80"
+                        ? "bg-indigo-200 dark:bg-[#222222]/80"
                         : "opacity-70"
                     }`
                   }
@@ -235,8 +235,8 @@ function Header() {
               to={authStatus?"/profile":"/login"}
               onClick={() => setOpen(!open)}
               className={({ isActive }) =>
-                `w-full p-2 text-end duration-300 ring-0 ring-black border-0 border-black dark:ring-gray-300 font-semibold text-black hover:bg-gray-400 hover:dark:bg-gray-700/80 ${
-                  isActive ? "bg-gray-400 dark:bg-gray-700/80" : "opacity-70"
+                `w-full p-2 text-end duration-300 ring-0 ring-black border-0 border-black dark:ring-gray-300 font-semibold text-black hover:bg-gray-400 hover:dark:bg-[#222222]/80 ${
+                  isActive ? "bg-gray-400 dark:bg-[#222222]/80" : "opacity-70"
                 }`
               }
             > Profile <ProfileIcon className="dark:text-white ml-2 w-8 h-8 text-black inline" />
