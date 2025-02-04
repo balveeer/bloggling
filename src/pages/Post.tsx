@@ -144,7 +144,7 @@ function Post() {
               className="w-full md:w-auto md:mx-auto max-h-screen translate-105"
             />
           </div>
-          <div className=" first-letter:capitalize first-letter:mr-2 first-letter:float-left first-letter:text-5xl first-letter:text-gray-500 first-letter:font-bold text-xl md:text-xl lg:text-2xl font-serif my-2 prose dark:prose-dark">{parse(post.content)}</div>
+          <div className=" [&>*]:dark:!text-white [&>*>*]:dark:!text-white [&>*>*>*]:dark:!text-white first-letter:capitalize first-letter:mr-2 first-letter:float-left first-letter:text-5xl first-letter:text-gray-500 first-letter:font-bold text-xl md:text-xl lg:text-2xl font-serif my-2 prose dark:prose-dark">{parse(post.content)}</div>
         </div>
         <Modal open={open} type={delModal?"delete":(user?"verification":"authentication")} onClose={handleClose}  />
     </div>
