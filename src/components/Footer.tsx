@@ -15,7 +15,7 @@ function Footer() {
         <div className="flex items-center justify-center">
           <div className="flex mt-4 justify-center gap-2">
             <a
-              href="#"
+              href=" https://discord.gg/xdrBBY8Z"
               className="p-2 rounded hover:shadow-lg text-[#5865f2]"
             >
               <svg
@@ -30,21 +30,19 @@ function Footer() {
               <span className="sr-only">Discord community</span>
             </a>
             <a
-              href="#"
-              className=" p-2 rounded hover:shadow-lg text-[#1DA1F2]"
+              href=" https://x.com/btwbalveer"
+              className=" p-2 rounded hover:shadow-lg"
             >
               <svg
-                className="w-6 h-6"
-                aria-hidden="true"
+                className="w-6 h-6 dark:fill-white"
                 xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 20 17"
+                x="0px"
+                y="0px"
+                width={100}
+                height={100}
+                viewBox="0 0 50 50"
               >
-                <path
-                  fillRule="evenodd"
-                  d="M20 1.892a8.178 8.178 0 0 1-2.355.635 4.074 4.074 0 0 0 1.8-2.235 8.344 8.344 0 0 1-2.605.98A4.13 4.13 0 0 0 13.85 0a4.068 4.068 0 0 0-4.1 4.038 4 4 0 0 0 .105.919A11.705 11.705 0 0 1 1.4.734a4.006 4.006 0 0 0 1.268 5.392 4.165 4.165 0 0 1-1.859-.5v.05A4.057 4.057 0 0 0 4.1 9.635a4.19 4.19 0 0 1-1.856.07 4.108 4.108 0 0 0 3.831 2.807A8.36 8.36 0 0 1 0 14.184 11.732 11.732 0 0 0 6.291 16 11.502 11.502 0 0 0 17.964 4.5c0-.177 0-.35-.012-.523A8.143 8.143 0 0 0 20 1.892Z"
-                  clipRule="evenodd"
-                />
+                <path d="M 11 4 C 7.1456661 4 4 7.1456661 4 11 L 4 39 C 4 42.854334 7.1456661 46 11 46 L 39 46 C 42.854334 46 46 42.854334 46 39 L 46 11 C 46 7.1456661 42.854334 4 39 4 L 11 4 z M 11 6 L 39 6 C 41.773666 6 44 8.2263339 44 11 L 44 39 C 44 41.773666 41.773666 44 39 44 L 11 44 C 8.2263339 44 6 41.773666 6 39 L 6 11 C 6 8.2263339 8.2263339 6 11 6 z M 13.085938 13 L 22.308594 26.103516 L 13 37 L 15.5 37 L 23.4375 27.707031 L 29.976562 37 L 37.914062 37 L 27.789062 22.613281 L 36 13 L 33.5 13 L 26.660156 21.009766 L 21.023438 13 L 13.085938 13 z M 16.914062 15 L 19.978516 15 L 34.085938 35 L 31.021484 35 L 16.914062 15 z" />
               </svg>
               <span className="sr-only">Twitter page</span>
             </a>
